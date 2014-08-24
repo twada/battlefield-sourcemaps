@@ -13,7 +13,7 @@ var gulp = require('gulp'),
     browserify = require('browserify'),
     mold = require('mold-source-map');
 
-gulp.task('help', taskListing);
+gulp.task('help', taskListing.withFilters(/:/));
 
 var browserifyScenarioList = {
     singlejs_espowerify: {
@@ -62,15 +62,15 @@ var gulpScenarioList = {
 
 Object.keys(gulpScenarioList).forEach(function (scenarioName) {
     var scenario = gulpScenarioList[scenarioName];
-    var destDir = './build/' + scenarioName;
-    gulp.task('clean_' + scenarioName, function (done) {
+    var destDir = './build/gulp/' + scenarioName;
+    gulp.task('clean:' + scenarioName, function (done) {
         del([destDir], done);
     });
-    gulp.task('setup_' + scenarioName, ['clean_' + scenarioName], function () {
+    gulp.task('setup:' + scenarioName, ['clean:' + scenarioName], function () {
         return gulp.src(scenario.html)
             .pipe(gulp.dest(destDir));
     });
-    gulp.task('build_' + scenarioName, ['clean_' + scenarioName], function() {
+    gulp.task('build:' + scenarioName, ['clean:' + scenarioName], function() {
         var stream;
         stream = gulp.src(scenario.srcFile);
         stream = stream.pipe(sourcemaps.init());
@@ -81,30 +81,30 @@ Object.keys(gulpScenarioList).forEach(function (scenarioName) {
         stream = stream.pipe(gulp.dest(destDir));
         return stream;
     });
-    gulp.task('test_' + scenarioName, ['build_' + scenarioName], function () {
+    gulp.task('test:' + scenarioName, ['build:' + scenarioName], function () {
         return gulp
             .src(path.join(destDir, 'test.html'))
             .pipe(mochaPhantomJS({reporter: 'dot'}));
     });
     gulp.task(scenarioName, [
-        'clean_' + scenarioName,
-        'setup_' + scenarioName,
-        'build_' + scenarioName,
-        'test_' + scenarioName
+        'clean:' + scenarioName,
+        'setup:' + scenarioName,
+        'build:' + scenarioName,
+        'test:' + scenarioName
     ]);
 });
 
 Object.keys(browserifyScenarioList).forEach(function (scenarioName) {
     var scenario = browserifyScenarioList[scenarioName];
-    var destDir = './build/' + scenarioName;
-    gulp.task('clean_' + scenarioName, function (done) {
+    var destDir = './build/browserify/' + scenarioName;
+    gulp.task('clean:' + scenarioName, function (done) {
         del([destDir], done);
     });
-    gulp.task('setup_' + scenarioName, ['clean_' + scenarioName], function () {
+    gulp.task('setup:' + scenarioName, ['clean:' + scenarioName], function () {
         return gulp.src('./test/html/browserify/test.html')
             .pipe(gulp.dest(destDir));
     });
-    gulp.task('build_' + scenarioName, ['clean_' + scenarioName], function() {
+    gulp.task('build:' + scenarioName, ['clean:' + scenarioName], function() {
         var files = glob.sync(scenario.srcFile);
         var b = browserify({entries: files, debug: true});
         scenario.transform.forEach(function (t) {
@@ -115,17 +115,22 @@ Object.keys(browserifyScenarioList).forEach(function (scenarioName) {
             .pipe(source('all_test.js'))
             .pipe(gulp.dest(destDir));
     });
-    gulp.task('test_' + scenarioName, ['build_' + scenarioName], function () {
+    gulp.task('test:' + scenarioName, ['build:' + scenarioName], function () {
         return gulp
             .src(path.join(destDir, 'test.html'))
             .pipe(mochaPhantomJS({reporter: 'dot'}));
     });
     gulp.task(scenarioName, [
-        'clean_' + scenarioName,
-        'setup_' + scenarioName,
-        'build_' + scenarioName,
-        'test_' + scenarioName
+        'clean:' + scenarioName,
+        'setup:' + scenarioName,
+        'build:' + scenarioName,
+        'test:' + scenarioName
     ]);
+});
+
+
+gulp.task('clean', function (done) {
+    del(['./build'], done);
 });
 
 
