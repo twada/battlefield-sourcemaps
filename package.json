@@ -30,6 +30,7 @@
     "gulp-concat": "^2.3.4",
     "gulp-mocha-phantomjs": "^0.4.0",
     "gulp-sourcemaps": "^1.1.1",
+    "gulp-task-listing": "^0.3.0",
     "gulp-util": "^3.0.0",
     "gulp-webserver": "^0.6.0",
     "mold-source-map": "^0.3.0",

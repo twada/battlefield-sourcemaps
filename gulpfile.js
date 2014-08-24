@@ -1,5 +1,6 @@
 var gulp = require('gulp'),
     gutil = require('gulp-util'),
+    taskListing = require('gulp-task-listing'),
     webserver = require('gulp-webserver'),
     mochaPhantomJS = require('gulp-mocha-phantomjs'),
     del = require('del'),
@@ -11,6 +12,8 @@ var gulp = require('gulp'),
     source = require('vinyl-source-stream'),
     browserify = require('browserify'),
     mold = require('mold-source-map');
+
+gulp.task('help', taskListing);
 
 var browserifyScenarioList = {
     singlejs_espowerify: {
