@@ -14,3 +14,4 @@ espowerify
 | single coffee     | coffeeify, espowerify | OK     | OK      |
 | multi coffee      | coffeeify, espowerify | OK     | OK      |
 | coffee js mixture | coffeeify, espowerify | OK     | OK      |
+| single ES6        | es6ify, espowerify    | NG     | NG      |

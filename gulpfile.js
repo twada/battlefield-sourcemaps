@@ -29,6 +29,10 @@ var browserifyScenarioList = {
     mixture_coffeeify_espowerify: {
         srcFile: './test/node/*_test.{js,coffee}',
         transform: ['coffeeify', 'espowerify']
+    },
+    singlees6_espowerify: {
+        srcFile: './test/es6/es6_array_test.js',
+        transform: ['es6ify', 'espowerify']
     }
 };
 
