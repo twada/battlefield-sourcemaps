@@ -6,6 +6,7 @@ var gulp = require('gulp'),
     del = require('del'),
     path = require('path'),
     concat = require('gulp-concat'),
+    coffee = require('gulp-coffee'),
     espower = require('gulp-espower'),
     sourcemaps = require('gulp-sourcemaps'),
     glob = require("glob"),
@@ -55,7 +56,12 @@ var gulpScenario = {
         srcFile: './test/web/*_test.js',
         html: './test/html/concat/test.html',
         plugins: [espower(), concat('all_test.js')]
-    }
+    },
+    gulp_coffee_espower: {
+        srcFile: './test/web/*_test.coffee',
+        html: './test/html/separated_coffee/test.html',
+        plugins: [coffee(), espower()]
+    },
 };
 
 Object.keys(gulpScenario).forEach(function (scenarioName) {

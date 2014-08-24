@@ -21,12 +21,10 @@ gulp-espower
 
 | scenario               | transform chain                        | Chromer | Firefox |
 |:-----------------------|:---------------------------------------|:--------|:--------|
-| single js              | gulp-espower                           |         |         |
-| multi js               | gulp-espower                           |         |         |
-| multi js concat        | gulp-concat, gulp-espower              |         |         |
-| multi js concat(2)     | gulp-espower, gulp-concat              |         |         |
-| single coffee          | gulp-coffee, gulp-espower              |         |         |
-| multi coffee           | gulp-coffee, gulp-espower              |         |         |
+| multi js               | gulp-espower                           | OK      |         |
+| multi js concat        | gulp-concat, gulp-espower              | NG      |         |
+| multi js concat(2)     | gulp-espower, gulp-concat              | OK      |         |
+| multi coffee           | gulp-coffee, gulp-espower              | NG      |         |
 | multi coffee concat    | gulp-coffee, gulp-concat, gulp-espower |         |         |
 | multi coffee concat(2) | gulp-coffee, gulp-espower, gulp-concat |         |         |
 
