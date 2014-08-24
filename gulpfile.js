@@ -13,9 +13,7 @@ var gulp = require('gulp'),
     browserify = require('browserify'),
     mold = require('mold-source-map');
 
-gulp.task('help', taskListing.withFilters(/:/));
-
-var browserifyScenarioList = {
+var browserifyScenario = {
     singlejs_espowerify: {
         srcFile: './test/node/js_array_test.js',
         transform: ['espowerify']
@@ -42,7 +40,7 @@ var browserifyScenarioList = {
     }
 };
 
-var gulpScenarioList = {
+var gulpScenario = {
     gulp_espower: {
         srcFile: './test/web/*_test.js',
         html: './test/html/separated/test.html',
@@ -60,8 +58,8 @@ var gulpScenarioList = {
     }
 };
 
-Object.keys(gulpScenarioList).forEach(function (scenarioName) {
-    var scenario = gulpScenarioList[scenarioName];
+Object.keys(gulpScenario).forEach(function (scenarioName) {
+    var scenario = gulpScenario[scenarioName];
     var destDir = './build/gulp/' + scenarioName;
     gulp.task('clean:' + scenarioName, function (done) {
         del([destDir], done);
@@ -94,8 +92,8 @@ Object.keys(gulpScenarioList).forEach(function (scenarioName) {
     ]);
 });
 
-Object.keys(browserifyScenarioList).forEach(function (scenarioName) {
-    var scenario = browserifyScenarioList[scenarioName];
+Object.keys(browserifyScenario).forEach(function (scenarioName) {
+    var scenario = browserifyScenario[scenarioName];
     var destDir = './build/browserify/' + scenarioName;
     gulp.task('clean:' + scenarioName, function (done) {
         del([destDir], done);
@@ -128,11 +126,9 @@ Object.keys(browserifyScenarioList).forEach(function (scenarioName) {
     ]);
 });
 
-
 gulp.task('clean', function (done) {
     del(['./build'], done);
 });
-
 
 gulp.task('serve', function() {
     gulp.src(__dirname)
@@ -141,3 +137,5 @@ gulp.task('serve', function() {
             directoryListing: true
         }));
 });
+
+gulp.task('help', taskListing.withFilters(/:/));
