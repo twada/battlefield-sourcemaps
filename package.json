@@ -1,0 +1,36 @@
+{
+  "name": "battlefield-sourcemaps",
+  "private": true,
+  "version": "0.0.0",
+  "description": "Fighting with sourcemaps",
+  "keywords": [
+    "power-assert",
+    "source-map"
+  ],
+  "author": {
+    "name": "Takuto Wada",
+    "email": "takuto.wada@gmail.com",
+    "url": "http://github.com/twada"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "license": {
+    "type": "MIT",
+    "url": "http://twada.mit-license.org/"
+  },
+  "devDependencies": {
+    "browserify": "^5.10.0",
+    "coffeeify": "^0.7.0",
+    "del": "^0.1.2",
+    "espowerify": "^0.8.0",
+    "glob": "^4.0.5",
+    "gulp": "^3.8.7",
+    "gulp-mocha-phantomjs": "^0.4.0",
+    "gulp-util": "^3.0.0",
+    "gulp-webserver": "^0.6.0",
+    "mold-source-map": "^0.3.0",
+    "power-assert": "^0.8.0",
+    "vinyl-source-stream": "^0.1.1"
+  }
+}

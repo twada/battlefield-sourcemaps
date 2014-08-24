@@ -1,0 +1,8 @@
+{
+  "name": "battlefield-sourcemaps",
+  "description": "Fighting with sourcemaps",
+  "devDependencies": {
+    "mocha": "~1.21.4",
+    "power-assert": "~0.8.0"
+  }
+}
