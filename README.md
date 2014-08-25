@@ -1,7 +1,7 @@
 battlefield-sourcemaps
 ================================
 
-Fighting with sourcemaps.
+Fighting with multi stage sourcemaps with power-assert.
 
 
 espowerify
@@ -15,6 +15,7 @@ espowerify
 | multi coffee      | coffeeify, espowerify | OK     | OK     | OK      |
 | coffee js mixture | coffeeify, espowerify | OK     | OK     | OK      |
 | single ES6        | es6ify, espowerify    | OK     | OK     | OK      |
+
 
 gulp-espower
 --------------------
