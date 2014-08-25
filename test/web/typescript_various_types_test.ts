@@ -10,8 +10,8 @@ describe('JS various types', () => {
         this.name = name;
         this.age = age;
     }
-    beforeEach(() => {
-        this.types = [
+    it('demo', () => {
+        var types = [
             'string', 98.6, true, false, null, undefined,
             ['nested', 'array'],
             {object: true},
@@ -19,10 +19,8 @@ describe('JS various types', () => {
             /^not/,
             new Person('alice', 3)
         ];
-    });
-    it('demo', () => {
-        var index = this.types.length -1,
+        var index = types.length -1,
             bob = new Person('bob', 5);
-        assert(this.types[index].name === bob.name);
+        assert(types[index].name === bob.name);
     });
 });
