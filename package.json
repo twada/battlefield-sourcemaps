@@ -29,6 +29,7 @@
     "gulp": "^3.8.7",
     "gulp-coffee": "^2.1.2",
     "gulp-concat": "^2.3.4",
+    "gulp-espower": "^0.8.0",
     "gulp-mocha-phantomjs": "^0.4.0",
     "gulp-sourcemaps": "^1.1.1",
     "gulp-task-listing": "^0.3.0",
