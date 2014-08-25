@@ -41,17 +41,23 @@ STATUS
 
 [\[WIP\] gulp-sourcemaps support by twada · Pull Request #2 · twada/gulp-espower](https://github.com/twada/gulp-espower/pull/2)
 
-| scenario                     | transform chain                        | output | Chrome | Firefox |
-|:-----------------------------|:---------------------------------------|:-------|:-------|:--------|
-| multi js                     | gulp-espower                           | OK     | OK     |         |
-| multi js concat              | gulp-concat, gulp-espower              | OK     | NG     |         |
-| multi js concat(2)           | gulp-espower, gulp-concat              | OK     | OK     | NG(absolute path) |
-| multi coffee                 | gulp-coffee, gulp-espower              | OK     | OK     |         |
-| multi coffee with sourceRoot | gulp-coffee, gulp-espower              | OK     | OK     | OK      |
-| multi coffee concat          | gulp-coffee, gulp-concat, gulp-espower |        |        |         |
-| multi coffee concat(2)       | gulp-coffee, gulp-espower, gulp-concat | OK     | OK     | NG(absolute path) |
-| multi ts concat              | gulp-tsc, gulp-espower, gulp-concat    |        |        |         |
-| multi ts concat(2)           | gulp-tsc(with out option), gulp-espower, gulp-concat    |        |        |         |
+| scenario                     | transform chain                                   | output | Chrome | Firefox |
+|:-----------------------------|:--------------------------------------------------|:-------|:-------|:--------|
+| multi js                     | gulp-espower                                      | OK     | OK     |         |
+| multi js concat(1)           | gulp-concat, gulp-espower                         | OK     | NG     |         |
+| multi js concat(2)           | gulp-espower, gulp-concat                         | OK     | OK     | NG(absolute path) |
+| multi js concat(3)           | gulp-concat-sourcemap, gulp-espower               |        |        |         |
+| multi js concat(4)           | gulp-espower, gulp-concat-sourcemap               |        |        |         |
+| multi coffee                 | gulp-coffee, gulp-espower                         | OK     | OK     |         |
+| multi coffee with sourceRoot | gulp-coffee, gulp-espower                         | OK     | OK     | OK      |
+| multi coffee concat(1)       | gulp-coffee, gulp-concat, gulp-espower            |        |        |         |
+| multi coffee concat(2)       | gulp-coffee, gulp-espower, gulp-concat            | OK     | OK     | NG(absolute path) |
+| multi coffee concat(3)       | gulp-coffee, gulp-concat-sourcemap, gulp-espower  |        |        |         |
+| multi coffee concat(4)       | gulp-coffee, gulp-espower, gulp-concat-sourcemap  |        |        | NG(absolute path) |
+| multi ts concat(1)           | gulp-tsc, gulp-espower, gulp-concat               |        |        |         |
+| multi ts concat(2)           | gulp-tsc(`out` option), gulp-espower, gulp-concat |        |        |         |
+| multi ts concat(3)           | gulp-type, gulp-espower, gulp-concat              |        |        |         |
+| multi ts concat(4)           | gulp-type, gulp-espower, gulp-concat-sourcemap    |        |        |         |
 
 
 RELATED LINKS
@@ -84,5 +90,7 @@ RELATED LINKS
 - [floridoo/vinyl-sourcemaps-apply](https://github.com/floridoo/vinyl-sourcemaps-apply)
 - [floridoo/concat-with-sourcemaps](https://github.com/floridoo/concat-with-sourcemaps)
 - [wearefractal/gulp-concat](https://github.com/wearefractal/gulp-concat)
+- [mikach/gulp-concat-sourcemap](https://github.com/mikach/gulp-concat-sourcemap)
 - [wearefractal/gulp-coffee](https://github.com/wearefractal/gulp-coffee)
+- [ivogabe/gulp-type](https://github.com/ivogabe/gulp-type)
 - [kotas/gulp-tsc](https://github.com/kotas/gulp-tsc)
