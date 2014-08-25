@@ -53,13 +53,15 @@ STATUS
 | coffee concat(1)       | gulp-coffee, gulp-concat, gulp-espower            |        |        |         |
 | coffee concat(2)       | gulp-coffee, gulp-espower, gulp-concat            | OK     | OK     | NG(absolute path) |
 | coffee concat(3)       | gulp-coffee, gulp-concat-sourcemap, gulp-espower  |        |        |         |
-| coffee concat(4)       | gulp-coffee, gulp-espower, gulp-concat-sourcemap  |        |        | NG(absolute path) |
-| ts                     | gulp-tsc, gulp-espower                            | NG     |        |         |
+| coffee concat(4)       | gulp-coffee, gulp-espower, gulp-concat-sourcemap  |        |        |         |
+| ts                     | gulp-tsc, gulp-espower                            | ERROR  |        |         |
 | ts(2)                  | gulp-type, gulp-espower                           | OK     | OK     | OK      |
-| ts concat(1)           | gulp-tsc, gulp-espower, gulp-concat               | NG     |        |         |
-| ts concat(2)           | gulp-tsc(`out` option), gulp-espower, gulp-concat | NG     |        |         |
-| ts concat(3)           | gulp-type, gulp-espower, gulp-concat              |        |        |         |
-| ts concat(4)           | gulp-type, gulp-espower, gulp-concat-sourcemap    |        |        |         |
+| ts concat(1)           | gulp-tsc, gulp-espower, gulp-concat               | ERROR  |        |         |
+| ts concat(2)           | gulp-tsc(`out` option), gulp-espower, gulp-concat | ERROR  |        |         |
+| ts concat(3)           | gulp-type, gulp-espower, gulp-concat              | OK     | OK     | NG(absolute path) |
+| ts concat(4)           | gulp-type, gulp-espower, gulp-concat-sourcemap    | OK     | OK     | NG(absolute path) |
+| ts concat(5)           | gulp-type, gulp-concat, gulp-espower              |        |        |         |
+| ts concat(6)           | gulp-type, gulp-concat-sourcemap, gulp-espower    |        |        |         |
 
 
 RELATED LINKS
