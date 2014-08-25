@@ -7,6 +7,7 @@ var gulp = require('gulp'),
     path = require('path'),
     concat = require('gulp-concat'),
     coffee = require('gulp-coffee'),
+    typescript = require('gulp-tsc'),
     espower = require('gulp-espower'),
     sourcemaps = require('gulp-sourcemaps'),
     glob = require("glob"),
@@ -71,6 +72,16 @@ var gulpScenario = {
         srcFile: './test/web/*_test.coffee',
         html: './test/html/concat/test.html',
         plugins: [coffee(), espower(), concat('all_test.js')]
+    },
+    gulp_typescript_espower_concat1: {
+        srcFile: './test/web/*_test.ts',
+        html: './test/html/concat/test.html',
+        plugins: [typescript({sourcemap: true}), espower(), concat('all_test.js')]
+    },
+    gulp_typescript_espower_concat2: {
+        srcFile: './test/web/*_test.ts',
+        html: './test/html/concat/test.html',
+        plugins: [typescript({sourcemap: true, out: path.join(__dirname, 'build/gulp/gulp_typescript_espower_concat2/') + "all_test.js"}), espower()]
     }
 };
 
