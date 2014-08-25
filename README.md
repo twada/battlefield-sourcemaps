@@ -7,6 +7,8 @@ Fighting with multi-stage sourcemaps with power-assert.
 HOW TO FIGHT
 --------------------
 
+[strategy (Japanese)](https://gist.github.com/twada/103d34a3237cecd463a6)
+
  1. git clone
  2. npm install (and npm link some cloned modules)
  3. gulp help
@@ -48,3 +50,36 @@ STATUS
 | multi coffee concat(2)       | gulp-coffee, gulp-espower, gulp-concat | OK     | OK     | NG(absolute path) |
 | multi ts concat              | gulp-tsc, gulp-espower, gulp-concat    |        |        |         |
 | multi ts concat(2)           | gulp-tsc(with out option), gulp-espower, gulp-concat    |        |        |         |
+
+
+RELATED LINKS
+--------------------
+
+### general
+
+- [power-assert 多段 SourceMap 対応の方針](https://gist.github.com/twada/103d34a3237cecd463a6)
+- [Source Mapを扱う関連ライブラリのまとめ | Web Scratch](http://efcl.info/2014/0622/res3933/)
+- [Compiling to JavaScript, and Debugging with Source Maps ✩ Mozilla Hacks – the Web developer blog](https://hacks.mozilla.org/2013/05/compiling-to-javascript-and-debugging-with-source-maps/)
+- [mozilla/source-map](https://github.com/mozilla/source-map)
+- [thlorenz/convert-source-map](https://github.com/thlorenz/convert-source-map)
+- [azu/multi-stage-sourcemap](https://github.com/azu/multi-stage-sourcemap)
+- [thlorenz/mold-source-map](https://github.com/thlorenz/mold-source-map)
+- [evanw/node-source-map-support](https://github.com/evanw/node-source-map-support)
+- [How to Enable Source Maps in Firefox? - CodeProject](http://www.codeproject.com/Articles/649271/How-to-Enable-Source-Maps-in-Firefox)
+
+### browserify
+
+- [browserify v2 adds source maps](http://thlorenz.com/blog/browserify-sourcemaps)
+- [jnordberg/coffeeify](https://github.com/jnordberg/coffeeify)
+- [thlorenz/es6ify](https://github.com/thlorenz/es6ify)
+- [Source maps not working with Firefox · Issue #681 · substack/node-browserify](https://github.com/substack/node-browserify/issues/681) -> use mold-source-map
+
+
+### gulp
+
+- [floridoo/gulp-sourcemaps](https://github.com/floridoo/gulp-sourcemaps)
+- [floridoo/vinyl-sourcemaps-apply](https://github.com/floridoo/vinyl-sourcemaps-apply)
+- [floridoo/concat-with-sourcemaps](https://github.com/floridoo/concat-with-sourcemaps)
+- [wearefractal/gulp-concat](https://github.com/wearefractal/gulp-concat)
+- [wearefractal/gulp-coffee](https://github.com/wearefractal/gulp-coffee)
+- [kotas/gulp-tsc](https://github.com/kotas/gulp-tsc)
