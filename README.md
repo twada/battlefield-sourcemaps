@@ -41,23 +41,25 @@ STATUS
 
 [\[WIP\] gulp-sourcemaps support by twada · Pull Request #2 · twada/gulp-espower](https://github.com/twada/gulp-espower/pull/2)
 
-| scenario                     | transform chain                                   | output | Chrome | Firefox |
-|:-----------------------------|:--------------------------------------------------|:-------|:-------|:--------|
-| multi js                     | gulp-espower                                      | OK     | OK     |         |
-| multi js concat(1)           | gulp-concat, gulp-espower                         | OK     | NG     |         |
-| multi js concat(2)           | gulp-espower, gulp-concat                         | OK     | OK     | NG(absolute path) |
-| multi js concat(3)           | gulp-concat-sourcemap, gulp-espower               |        |        |         |
-| multi js concat(4)           | gulp-espower, gulp-concat-sourcemap               |        |        |         |
-| multi coffee                 | gulp-coffee, gulp-espower                         | OK     | OK     |         |
-| multi coffee with sourceRoot | gulp-coffee, gulp-espower                         | OK     | OK     | OK      |
-| multi coffee concat(1)       | gulp-coffee, gulp-concat, gulp-espower            |        |        |         |
-| multi coffee concat(2)       | gulp-coffee, gulp-espower, gulp-concat            | OK     | OK     | NG(absolute path) |
-| multi coffee concat(3)       | gulp-coffee, gulp-concat-sourcemap, gulp-espower  |        |        |         |
-| multi coffee concat(4)       | gulp-coffee, gulp-espower, gulp-concat-sourcemap  |        |        | NG(absolute path) |
-| multi ts concat(1)           | gulp-tsc, gulp-espower, gulp-concat               |        |        |         |
-| multi ts concat(2)           | gulp-tsc(`out` option), gulp-espower, gulp-concat |        |        |         |
-| multi ts concat(3)           | gulp-type, gulp-espower, gulp-concat              |        |        |         |
-| multi ts concat(4)           | gulp-type, gulp-espower, gulp-concat-sourcemap    |        |        |         |
+| scenario               | transform chain                                   | output | Chrome | Firefox |
+|:-----------------------|:--------------------------------------------------|:-------|:-------|:--------|
+| js                     | gulp-espower                                      | OK     | OK     |         |
+| js concat(1)           | gulp-concat, gulp-espower                         | OK     | NG     |         |
+| js concat(2)           | gulp-espower, gulp-concat                         | OK     | OK     | NG(absolute path) |
+| js concat(3)           | gulp-concat-sourcemap, gulp-espower               |        |        |         |
+| js concat(4)           | gulp-espower, gulp-concat-sourcemap               |        |        |         |
+| coffee                 | gulp-coffee, gulp-espower                         | OK     | OK     |         |
+| coffee with sourceRoot | gulp-coffee, gulp-espower                         | OK     | OK     | OK      |
+| coffee concat(1)       | gulp-coffee, gulp-concat, gulp-espower            |        |        |         |
+| coffee concat(2)       | gulp-coffee, gulp-espower, gulp-concat            | OK     | OK     | NG(absolute path) |
+| coffee concat(3)       | gulp-coffee, gulp-concat-sourcemap, gulp-espower  |        |        |         |
+| coffee concat(4)       | gulp-coffee, gulp-espower, gulp-concat-sourcemap  |        |        | NG(absolute path) |
+| ts                     | gulp-tsc, gulp-espower                            | NG     |        |         |
+| ts(2)                  | gulp-type, gulp-espower                           | OK     | OK     | OK      |
+| ts concat(1)           | gulp-tsc, gulp-espower, gulp-concat               | NG     |        |         |
+| ts concat(2)           | gulp-tsc(`out` option), gulp-espower, gulp-concat | NG     |        |         |
+| ts concat(3)           | gulp-type, gulp-espower, gulp-concat              |        |        |         |
+| ts concat(4)           | gulp-type, gulp-espower, gulp-concat-sourcemap    |        |        |         |
 
 
 RELATED LINKS
