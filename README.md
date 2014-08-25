@@ -54,10 +54,10 @@ STATUS
 | coffee concat(2)       | gulp-coffee, gulp-espower, gulp-concat            | OK     | OK     | NG(absolute path) |
 | coffee concat(3)       | gulp-coffee, gulp-concat-sourcemap, gulp-espower  |        |        |         |
 | coffee concat(4)       | gulp-coffee, gulp-espower, gulp-concat-sourcemap  |        |        |         |
-| ts                     | gulp-tsc, gulp-espower                            | ERROR  |        |         |
+| ts                     | gulp-tsc, gulp-espower                            | ERROR  | N/A    | N/A     |
 | ts(2)                  | gulp-type, gulp-espower                           | OK     | OK     | OK      |
-| ts concat(1)           | gulp-tsc, gulp-espower, gulp-concat               | ERROR  |        |         |
-| ts concat(2)           | gulp-tsc(`out` option), gulp-espower, gulp-concat | ERROR  |        |         |
+| ts concat(1)           | gulp-tsc, gulp-espower, gulp-concat               | ERROR  | N/A    | N/A     |
+| ts concat(2)           | gulp-tsc(`out` option), gulp-espower, gulp-concat | ERROR  | N/A    | N/A     |
 | ts concat(3)           | gulp-type, gulp-espower, gulp-concat              | OK     | OK     | NG(absolute path) |
 | ts concat(4)           | gulp-type, gulp-espower, gulp-concat-sourcemap    | OK     | OK     | NG(absolute path) |
 | ts concat(5)           | gulp-type, gulp-concat, gulp-espower              |        |        |         |
@@ -84,6 +84,7 @@ RELATED LINKS
 - [browserify v2 adds source maps](http://thlorenz.com/blog/browserify-sourcemaps)
 - [jnordberg/coffeeify](https://github.com/jnordberg/coffeeify)
 - [thlorenz/es6ify](https://github.com/thlorenz/es6ify)
+- [smrq/tsify](https://github.com/smrq/tsify)
 - [Source maps not working with Firefox · Issue #681 · substack/node-browserify](https://github.com/substack/node-browserify/issues/681) -> use mold-source-map
 
 
