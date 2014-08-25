@@ -2,6 +2,8 @@
 ///<reference path='../typing/assert/assert.d.ts' />
 // try without --noImplicitAny option
 
+import assert = require("power-assert");
+
 describe('TS various types', () => {
     function Person(name, age) {
         this.name = name;
