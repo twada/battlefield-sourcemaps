@@ -31,7 +31,7 @@ STATUS
 | coffee js mixture | coffeeify, espowerify | OK     | OK     | OK      |
 | single ES6        | es6ify, espowerify    | OK     | OK     | OK      |
 
-[now landed](https://github.com/twada/espowerify/releases/tag/v0.9.0)
+[espowerify 0.9.0 is now landed!](https://github.com/twada/espowerify/releases/tag/v0.9.0)
 
 ### gulp-espower
 
