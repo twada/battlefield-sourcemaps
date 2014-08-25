@@ -7,6 +7,8 @@ Fighting with multi stage sourcemaps with power-assert.
 espowerify
 --------------------
 
+[\[WIP\] SourceMap transform chain by twada · Pull Request #4 · twada/espowerify](https://github.com/twada/espowerify/pull/4)
+
 | scenario          | transform chain       | output | Chrome | Firefox |
 |:------------------|:----------------------|:-------|:-------|:--------|
 | single js         | espowerify            | OK     | OK     | OK      |
@@ -19,6 +21,8 @@ espowerify
 
 gulp-espower
 --------------------
+
+[\[WIP\] gulp-sourcemaps support by twada · Pull Request #2 · twada/gulp-espower](https://github.com/twada/gulp-espower/pull/2)
 
 | scenario                     | transform chain                        | output | Chrome | Firefox |
 |:-----------------------------|:---------------------------------------|:-------|:-------|:--------|
