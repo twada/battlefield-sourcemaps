@@ -7,6 +7,7 @@ var gulp = require('gulp'),
     path = require('path'),
     concat = require('gulp-concat'),
     coffee = require('gulp-coffee'),
+    ts = require('gulp-type'),
     typescript = require('gulp-tsc'),
     espower = require('gulp-espower'),
     sourcemaps = require('gulp-sourcemaps'),
@@ -73,6 +74,21 @@ var gulpScenario = {
         html: './test/html/concat/test.html',
         plugins: [coffee(), espower(), concat('all_test.js')]
     },
+    gulp_typescript_espower1: {
+        srcFile: './test/web/*_test.ts',
+        html: './test/html/separated_ts/test.html',
+        plugins: [typescript({sourcemap: true}), espower()]
+    },
+    gulp_typescript_espower2: {
+        srcFile: './test/web/*_test.ts',
+        html: './test/html/separated_ts/test.html',
+        plugins: [
+            function (stream) {
+                return stream.pipe(ts()).js;
+            },
+            espower()
+        ]
+    },
     gulp_typescript_espower_concat1: {
         srcFile: './test/web/*_test.ts',
         html: './test/html/concat/test.html',
@@ -100,7 +116,11 @@ Object.keys(gulpScenario).forEach(function (scenarioName) {
         stream = gulp.src(scenario.srcFile);
         stream = stream.pipe(sourcemaps.init());
         scenario.plugins.forEach(function (p) {
-            stream = stream.pipe(p);
+            if (typeof p === 'function') {
+                stream = p(stream);
+            } else {
+                stream = stream.pipe(p);
+            }
         });
         stream = stream.pipe(sourcemaps.write());
         stream = stream.pipe(gulp.dest(destDir));
