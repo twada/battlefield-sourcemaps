@@ -33,6 +33,8 @@ STATUS
 | multi coffee      | coffeeify, espowerify | OK     | OK     | OK      |
 | coffee js mixture | coffeeify, espowerify | OK     | OK     | OK      |
 | single ES6        | es6ify, espowerify    | OK     | OK     | OK      |
+| single ts         | tsify, espowerify     | OK     | OK     | OK      |
+| multi ts          | tsify, espowerify     | OK     | OK     | OK      |
 
 [espowerify 0.9.0 is now landed!](https://github.com/twada/espowerify/releases/tag/v0.9.0)
 
@@ -49,13 +51,13 @@ STATUS
 | js concat(3)           | gulp-concat-sourcemap, gulp-espower               |        |        |         |
 | js concat(4)           | gulp-espower, gulp-concat-sourcemap               |        |        |         |
 | coffee                 | gulp-coffee, gulp-espower                         | OK     | OK     | OK      |
-| coffee with sourceRoot | gulp-coffee, gulp-espower                         | OK     | OK     | OK      |
+| coffee(with sourceRoot)| gulp-coffee, gulp-espower                         | OK     | OK     | OK      |
 | coffee concat(1)       | gulp-coffee, gulp-concat, gulp-espower            |        |        |         |
 | coffee concat(2)       | gulp-coffee, gulp-espower, gulp-concat            | OK     | OK     | NG(absolute path) |
 | coffee concat(3)       | gulp-coffee, gulp-concat-sourcemap, gulp-espower  |        |        |         |
 | coffee concat(4)       | gulp-coffee, gulp-espower, gulp-concat-sourcemap  |        |        |         |
 | ts                     | gulp-tsc, gulp-espower                            | ERROR  | N/A    | N/A     |
-| ts(2)                  | gulp-type, gulp-espower                           | OK     | OK     | OK      |
+| ts (gulp-type)         | gulp-type, gulp-espower                           | OK     | OK     | OK      |
 | ts concat(1)           | gulp-tsc, gulp-espower, gulp-concat               | ERROR  | N/A    | N/A     |
 | ts concat(2)           | gulp-tsc(`out` option), gulp-espower, gulp-concat | ERROR  | N/A    | N/A     |
 | ts concat(3)           | gulp-type, gulp-espower, gulp-concat              | OK     | OK     | NG(absolute path) |
@@ -86,7 +88,7 @@ RELATED LINKS
 - [thlorenz/es6ify](https://github.com/thlorenz/es6ify)
 - [smrq/tsify](https://github.com/smrq/tsify)
 - [Source maps not working with Firefox · Issue #681 · substack/node-browserify](https://github.com/substack/node-browserify/issues/681) -> use mold-source-map
-
+- [gulp - Browserify source map only makes the root file accesible (caused by absolute path names) - Stack Overflow](http://stackoverflow.com/questions/25303585/browserify-source-map-only-makes-the-root-file-accesible-caused-by-absolute-pat) -> use mold-source-map
 
 ### gulp
 
