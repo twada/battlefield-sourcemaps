@@ -43,12 +43,12 @@ STATUS
 
 | scenario               | transform chain                                   | output | Chrome | Firefox |
 |:-----------------------|:--------------------------------------------------|:-------|:-------|:--------|
-| js                     | gulp-espower                                      | OK     | OK     |         |
-| js concat(1)           | gulp-concat, gulp-espower                         | OK     | NG     |         |
+| js                     | gulp-espower                                      | OK     | OK     | OK      |
+| js concat(1)           | gulp-concat, gulp-espower                         | OK     | NG     | NG      |
 | js concat(2)           | gulp-espower, gulp-concat                         | OK     | OK     | NG(absolute path) |
 | js concat(3)           | gulp-concat-sourcemap, gulp-espower               |        |        |         |
 | js concat(4)           | gulp-espower, gulp-concat-sourcemap               |        |        |         |
-| coffee                 | gulp-coffee, gulp-espower                         | OK     | OK     |         |
+| coffee                 | gulp-coffee, gulp-espower                         | OK     | OK     | OK      |
 | coffee with sourceRoot | gulp-coffee, gulp-espower                         | OK     | OK     | OK      |
 | coffee concat(1)       | gulp-coffee, gulp-concat, gulp-espower            |        |        |         |
 | coffee concat(2)       | gulp-coffee, gulp-espower, gulp-concat            | OK     | OK     | NG(absolute path) |
