@@ -20,6 +20,7 @@ HOW TO FIGHT
 STATUS
 --------------------
 
+
 ### espowerify
 
 [SourceMap transform chain by twada · Pull Request #4 · twada/espowerify](https://github.com/twada/espowerify/pull/4)
@@ -34,6 +35,7 @@ STATUS
 | single ES6        | es6ify, espowerify    | OK     | OK     | OK      |
 
 [espowerify 0.9.0 is now landed!](https://github.com/twada/espowerify/releases/tag/v0.9.0)
+
 
 ### gulp-espower
 
@@ -77,6 +79,7 @@ RELATED LINKS
 
 ### gulp
 
+- [Plugins with gulp sourcemaps support](https://github.com/floridoo/gulp-sourcemaps/wiki/Plugins-with-gulp-sourcemaps-support)
 - [floridoo/gulp-sourcemaps](https://github.com/floridoo/gulp-sourcemaps)
 - [floridoo/vinyl-sourcemaps-apply](https://github.com/floridoo/vinyl-sourcemaps-apply)
 - [floridoo/concat-with-sourcemaps](https://github.com/floridoo/concat-with-sourcemaps)
