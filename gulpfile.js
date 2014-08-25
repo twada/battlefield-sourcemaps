@@ -62,6 +62,16 @@ var gulpScenario = {
         html: './test/html/separated_coffee/test.html',
         plugins: [coffee(), espower()]
     },
+    gulp_coffee_espower_custom: {
+        srcFile: './test/web/*_test.coffee',
+        html: './test/html/separated_coffee/test.html',
+        plugins: [coffee({sourceRoot: path.join(__dirname, 'test/web/')}), espower()]
+    },
+    gulp_coffee_espower_concat: {
+        srcFile: './test/web/*_test.coffee',
+        html: './test/html/concat/test.html',
+        plugins: [coffee(), espower(), concat('all_test.js')]
+    }
 };
 
 Object.keys(gulpScenario).forEach(function (scenarioName) {
