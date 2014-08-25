@@ -10,7 +10,7 @@ var gulp = require('gulp'),
     typescript = require('gulp-tsc'),
     espower = require('gulp-espower'),
     sourcemaps = require('gulp-sourcemaps'),
-    glob = require("glob"),
+    glob = require('glob'),
     source = require('vinyl-source-stream'),
     browserify = require('browserify'),
     mold = require('mold-source-map');
@@ -81,7 +81,7 @@ var gulpScenario = {
     gulp_typescript_espower_concat2: {
         srcFile: './test/web/*_test.ts',
         html: './test/html/concat/test.html',
-        plugins: [typescript({sourcemap: true, out: path.join(__dirname, 'build/gulp/gulp_typescript_espower_concat2/') + "all_test.js"}), espower()]
+        plugins: [typescript({sourcemap: true, out: path.join(__dirname, 'build/gulp/gulp_typescript_espower_concat2/') + 'all_test.js'}), espower()]
     }
 };
 
@@ -95,7 +95,7 @@ Object.keys(gulpScenario).forEach(function (scenarioName) {
         return gulp.src(scenario.html)
             .pipe(gulp.dest(destDir));
     });
-    gulp.task('build:' + scenarioName, ['clean:' + scenarioName], function() {
+    gulp.task('build:' + scenarioName, ['setup:' + scenarioName], function() {
         var stream;
         stream = gulp.src(scenario.srcFile);
         stream = stream.pipe(sourcemaps.init());
@@ -129,7 +129,7 @@ Object.keys(browserifyScenario).forEach(function (scenarioName) {
         return gulp.src('./test/html/browserify/test.html')
             .pipe(gulp.dest(destDir));
     });
-    gulp.task('build:' + scenarioName, ['clean:' + scenarioName], function() {
+    gulp.task('build:' + scenarioName, ['setup:' + scenarioName], function() {
         var files = glob.sync(scenario.srcFile);
         var b = browserify({entries: files, debug: true});
         scenario.transform.forEach(function (t) {
@@ -156,6 +156,10 @@ Object.keys(browserifyScenario).forEach(function (scenarioName) {
 gulp.task('clean', function (done) {
     del(['./build'], done);
 });
+
+gulp.task('build_all_browserify', Object.keys(browserifyScenario).map(function (name){ return 'build:' + name; }));
+
+gulp.task('build_all_gulp', Object.keys(gulpScenario).map(function (name){ return 'build:' + name; }));
 
 gulp.task('serve', function() {
     gulp.src(__dirname)
