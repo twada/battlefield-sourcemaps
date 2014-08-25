@@ -1,14 +1,14 @@
 battlefield-sourcemaps
 ================================
 
-Fighting with multi stage sourcemaps with power-assert.
+Fighting with multi-stage sourcemaps with power-assert.
 
 
 HOW TO FIGHT
 --------------------
 
  1. git clone
- 2. npm install
+ 2. npm install (and npm link some cloned modules)
  3. gulp help
  4. gulp [one of scenario]
  5. gulp serve
@@ -20,7 +20,7 @@ STATUS
 
 ### espowerify
 
-[\[WIP\] SourceMap transform chain by twada · Pull Request #4 · twada/espowerify](https://github.com/twada/espowerify/pull/4)
+[SourceMap transform chain by twada · Pull Request #4 · twada/espowerify](https://github.com/twada/espowerify/pull/4)
 
 | scenario          | transform chain       | output | Chrome | Firefox |
 |:------------------|:----------------------|:-------|:-------|:--------|
@@ -31,6 +31,7 @@ STATUS
 | coffee js mixture | coffeeify, espowerify | OK     | OK     | OK      |
 | single ES6        | es6ify, espowerify    | OK     | OK     | OK      |
 
+[now landed](https://github.com/twada/espowerify/releases/tag/v0.9.0)
 
 ### gulp-espower
 
@@ -45,3 +46,5 @@ STATUS
 | multi coffee with sourceRoot | gulp-coffee, gulp-espower              | OK     | OK     | OK      |
 | multi coffee concat          | gulp-coffee, gulp-concat, gulp-espower |        |        |         |
 | multi coffee concat(2)       | gulp-coffee, gulp-espower, gulp-concat | OK     | OK     | NG(absolute path) |
+| multi ts concat              | gulp-tsc, gulp-espower, gulp-concat    |        |        |         |
+| multi ts concat(2)           | gulp-tsc(with out option), gulp-espower, gulp-concat    |        |        |         |
