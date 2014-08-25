@@ -41,6 +41,16 @@ var browserifyScenario = {
     singlees6_espowerify: {
         srcFile: './test/es6/es6_array_test.js',
         transform: ['es6ify', 'espowerify']
+    },
+    single_ts_espowerify: {
+        srcFile: './test/node/typescript_array_test.ts',
+        plugins: ['tsify'],
+        transform: ['espowerify']
+    },
+    multi_ts_espowerify: {
+        srcFile: './test/node/*_test.ts',
+        plugins: ['tsify'],
+        transform: ['espowerify']
     }
 };
 
@@ -175,6 +185,11 @@ Object.keys(browserifyScenario).forEach(function (scenarioName) {
     gulp.task('build:' + scenarioName, ['setup:' + scenarioName], function() {
         var files = glob.sync(scenario.srcFile);
         var b = browserify({entries: files, debug: true});
+        if (scenario.plugins) {
+            scenario.plugins.forEach(function (p) {
+                b.plugin(p);
+            });
+        }
         scenario.transform.forEach(function (t) {
             b.transform(t);
         });
