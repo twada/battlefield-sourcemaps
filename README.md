@@ -43,7 +43,7 @@ STATUS
 | language     | first transform       | second transform      | third transform       | output | Chrome | Firefox |
 |:-------------|:----------------------|:----------------------|:----------------------|:-------|:-------|:--------|
 | JavaScript   | gulp-espower          |                       |                       | OK     | OK     | OK      |
-| JavaScript   | gulp-concat           | gulp-espower          |                       | OK     | NG     | NG      |
+| JavaScript   | gulp-concat           | gulp-espower          |                       | OK     | OK     | OK      |
 | JavaScript   | gulp-espower          | gulp-concat           |                       | OK     | OK     | NG(absolute path) |
 | JavaScript   | gulp-concat-sourcemap | gulp-espower          |                       |        |        |         |
 | JavaScript   | gulp-espower          | gulp-concat-sourcemap |                       |        |        |         |
