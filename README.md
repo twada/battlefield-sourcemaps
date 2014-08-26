@@ -40,21 +40,20 @@ STATUS
 
 [\[WIP\] gulp-sourcemaps support by twada · Pull Request #2 · twada/gulp-espower](https://github.com/twada/gulp-espower/pull/2)
 
-| language     | first transform       | second transform      | third transform       | output | Chrome | Firefox |
-|:-------------|:----------------------|:----------------------|:----------------------|:-------|:-------|:--------|
-| JavaScript   | gulp-espower          |                       |                       | OK     | OK     | OK      |
-| JavaScript   | gulp-concat           | gulp-espower          |                       | OK     | OK     | OK      |
-| JavaScript   | gulp-espower          | gulp-concat           |                       | OK     | OK     | OK      |
-| CoffeeScript | gulp-coffee           | gulp-espower          |                       | OK     | OK     | OK      |
-| CoffeeScript | gulp-coffee           | gulp-espower          |                       | OK     | OK     | OK      |
-| CoffeeScript | gulp-coffee           | gulp-concat           | gulp-espower          |        |        |         |
-| CoffeeScript | gulp-coffee           | gulp-espower          | gulp-concat           | OK     | OK     | NG(absolute path) |
-| TypeScript   | gulp-tsc              | gulp-espower          |                       | ERROR  | N/A    | N/A     |
-| TypeScript   | gulp-tsc              | gulp-espower          | gulp-concat           | ERROR  | N/A    | N/A     |
-| TypeScript   | gulp-tsc(`out` option)| gulp-espower          | gulp-concat           | ERROR  | N/A    | N/A     |
-| TypeScript   | gulp-type             | gulp-espower          |                       | OK     | OK     | OK      |
-| TypeScript   | gulp-type             | gulp-espower          | gulp-concat           | OK     | OK     | NG(absolute path) |
-| TypeScript   | gulp-type             | gulp-concat           | gulp-espower          |        |        |         |
+| language     | 1st transform | 2nd transform | 3rd transform | output | Chrome | Firefox |
+|:-------------|:--------------|:--------------|:--------------|:-------|:-------|:--------|
+| JavaScript   | gulp-espower  |               |               | OK     | OK     | OK      |
+| JavaScript   | gulp-concat   | gulp-espower  |               | OK     | OK     | OK      |
+| JavaScript   | gulp-espower  | gulp-concat   |               | OK     | OK     | OK      |
+| CoffeeScript | gulp-coffee   | gulp-espower  |               | OK     | OK     | OK      |
+| CoffeeScript | gulp-coffee   | gulp-espower  |               | OK     | OK     | OK      |
+| CoffeeScript | gulp-coffee   | gulp-concat   | gulp-espower  |        |        |         |
+| CoffeeScript | gulp-coffee   | gulp-espower  | gulp-concat   | OK     | OK     | NG(absolute path) |
+| TypeScript   | gulp-tsc      | gulp-espower  |               | ERROR  | N/A    | N/A     |
+| TypeScript   | gulp-tsc      | gulp-espower  | gulp-concat   | ERROR  | N/A    | N/A     |
+| TypeScript   | gulp-type     | gulp-espower  |               | OK     | OK     | OK      |
+| TypeScript   | gulp-type     | gulp-espower  | gulp-concat   | OK     | OK     | NG(absolute path) |
+| TypeScript   | gulp-type     | gulp-concat   | gulp-espower  |        |        |         |
 
 
 
