@@ -5,6 +5,7 @@ var gulp = require('gulp'),
     mochaPhantomJS = require('gulp-mocha-phantomjs'),
     del = require('del'),
     path = require('path'),
+    tap = require('gulp-tap'),
     concat = require('gulp-concat'),
     gulpConcatSourceMap = require('gulp-concat-sourcemap'),
     coffee = require('gulp-coffee'),
@@ -148,12 +149,16 @@ Object.keys(gulpScenario).forEach(function (scenarioName) {
         var stream;
         stream = gulp.src(scenario.srcFile);
         stream = stream.pipe(sourcemaps.init());
-        scenario.plugins.forEach(function (p) {
+        scenario.plugins.forEach(function (p, idx) {
             if (typeof p === 'function') {
                 stream = p(stream);
             } else {
                 stream = stream.pipe(p);
             }
+            stream = stream.pipe(tap(function (file) {
+                console.log('##### sourceMap after transform ' + (idx+1));
+                console.log(file.sourceMap);
+            }));
         });
         stream = stream.pipe(sourcemaps.write());
         // stream = stream.pipe(sourcemaps.write({
