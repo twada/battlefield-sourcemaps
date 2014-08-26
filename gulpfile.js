@@ -7,7 +7,6 @@ var gulp = require('gulp'),
     path = require('path'),
     tap = require('gulp-tap'),
     concat = require('gulp-concat'),
-    gulpConcatSourceMap = require('gulp-concat-sourcemap'),
     coffee = require('gulp-coffee'),
     ts = require('gulp-type'),
     typescript = require('gulp-tsc'),
@@ -120,17 +119,6 @@ var gulpScenario = {
             },
             espower(),
             concat('all_test.js')
-        ]
-    },
-    gulp_typescript_espower_concat4: {
-        srcFile: './test/web/*_test.ts',
-        html: './test/html/concat/test.html',
-        plugins: [
-            function (stream) {
-                return stream.pipe(ts()).js;
-            },
-            espower(),
-            gulpConcatSourceMap('all_test.js')
         ]
     }
 };

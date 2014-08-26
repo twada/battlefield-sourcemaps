@@ -44,23 +44,17 @@ STATUS
 |:-------------|:----------------------|:----------------------|:----------------------|:-------|:-------|:--------|
 | JavaScript   | gulp-espower          |                       |                       | OK     | OK     | OK      |
 | JavaScript   | gulp-concat           | gulp-espower          |                       | OK     | OK     | OK      |
-| JavaScript   | gulp-espower          | gulp-concat           |                       | OK     | OK     | NG(absolute path) |
-| JavaScript   | gulp-concat-sourcemap | gulp-espower          |                       |        |        |         |
-| JavaScript   | gulp-espower          | gulp-concat-sourcemap |                       |        |        |         |
+| JavaScript   | gulp-espower          | gulp-concat           |                       | OK     | OK     | OK      |
 | CoffeeScript | gulp-coffee           | gulp-espower          |                       | OK     | OK     | OK      |
 | CoffeeScript | gulp-coffee           | gulp-espower          |                       | OK     | OK     | OK      |
 | CoffeeScript | gulp-coffee           | gulp-concat           | gulp-espower          |        |        |         |
 | CoffeeScript | gulp-coffee           | gulp-espower          | gulp-concat           | OK     | OK     | NG(absolute path) |
-| CoffeeScript | gulp-coffee           | gulp-concat-sourcemap | gulp-espower          |        |        |         |
-| CoffeeScript | gulp-coffee           | gulp-espower          | gulp-concat-sourcemap |        |        |         |
 | TypeScript   | gulp-tsc              | gulp-espower          |                       | ERROR  | N/A    | N/A     |
 | TypeScript   | gulp-tsc              | gulp-espower          | gulp-concat           | ERROR  | N/A    | N/A     |
 | TypeScript   | gulp-tsc(`out` option)| gulp-espower          | gulp-concat           | ERROR  | N/A    | N/A     |
 | TypeScript   | gulp-type             | gulp-espower          |                       | OK     | OK     | OK      |
 | TypeScript   | gulp-type             | gulp-espower          | gulp-concat           | OK     | OK     | NG(absolute path) |
-| TypeScript   | gulp-type             | gulp-espower          | gulp-concat-sourcemap | OK     | OK     | NG(absolute path) |
 | TypeScript   | gulp-type             | gulp-concat           | gulp-espower          |        |        |         |
-| TypeScript   | gulp-type             | gulp-concat-sourcemap | gulp-espower          |        |        |         |
 
 
 
