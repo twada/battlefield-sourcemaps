@@ -156,6 +156,12 @@ Object.keys(gulpScenario).forEach(function (scenarioName) {
             }
         });
         stream = stream.pipe(sourcemaps.write());
+        // stream = stream.pipe(sourcemaps.write({
+        //     includeContent: true,
+        //     sourceRoot: function(file) {
+        //         return path.relative(__dirname, file.base);
+        //     }
+        // }));
         stream = stream.pipe(gulp.dest(destDir));
         return stream;
     });
