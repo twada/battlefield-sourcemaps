@@ -18,19 +18,19 @@ var gulp = require('gulp'),
     mold = require('mold-source-map');
 
 var browserifyScenario = {
-    singlejs_espowerify: {
+    single_js_espowerify: {
         srcFile: './test/node/js_array_test.js',
         transform: ['espowerify']
     },
-    multijs_espowerify: {
+    multi_js_espowerify: {
         srcFile: './test/node/*_test.js',
         transform: ['espowerify']
     },
-    singlecoffee_coffeeify_espowerify: {
+    single_coffee_coffeeify_espowerify: {
         srcFile: './test/node/coffee_array_test.coffee',
         transform: ['coffeeify', 'espowerify']
     },
-    multicoffee_coffeeify_espowerify: {
+    multi_coffee_coffeeify_espowerify: {
         srcFile: './test/node/*_test.coffee',
         transform: ['coffeeify', 'espowerify']
     },
@@ -38,7 +38,7 @@ var browserifyScenario = {
         srcFile: './test/node/*_test.{js,coffee}',
         transform: ['coffeeify', 'espowerify']
     },
-    singlees6_espowerify: {
+    single_es6_espowerify: {
         srcFile: './test/es6/es6_array_test.js',
         transform: ['es6ify', 'espowerify']
     },
@@ -80,17 +80,32 @@ var gulpScenario = {
         html: './test/html/separated_coffee/test.html',
         plugins: [coffee({sourceRoot: path.join(__dirname, 'test/web/')}), espower()]
     },
+    gulp_coffee_concat_espower: {
+        srcFile: './test/web/*_test.coffee',
+        html: './test/html/concat/test.html',
+        plugins: [coffee(), concat('all_test.js'), espower()]
+    },
     gulp_coffee_espower_concat: {
         srcFile: './test/web/*_test.coffee',
         html: './test/html/concat/test.html',
         plugins: [coffee(), espower(), concat('all_test.js')]
     },
-    gulp_typescript_espower1: {
+    gulp_tsc_espower: {
         srcFile: './test/web/*_test.ts',
         html: './test/html/separated_ts/test.html',
         plugins: [typescript({sourcemap: true}), espower()]
     },
-    gulp_typescript_espower2: {
+    gulp_tsc_espower_concat: {
+        srcFile: './test/web/*_test.ts',
+        html: './test/html/concat/test.html',
+        plugins: [typescript({sourcemap: true}), espower(), concat('all_test.js')]
+    },
+    gulp_tsc_out_espower: {
+        srcFile: './test/web/*_test.ts',
+        html: './test/html/concat/test.html',
+        plugins: [typescript({sourcemap: true, out: path.join(__dirname, 'build/gulp/gulp_tsc_out_espower/') + 'all_test.js'}), espower()]
+    },
+    gulp_type_espower: {
         srcFile: './test/web/*_test.ts',
         html: './test/html/separated_ts/test.html',
         plugins: [
@@ -100,17 +115,7 @@ var gulpScenario = {
             espower()
         ]
     },
-    gulp_typescript_espower_concat1: {
-        srcFile: './test/web/*_test.ts',
-        html: './test/html/concat/test.html',
-        plugins: [typescript({sourcemap: true}), espower(), concat('all_test.js')]
-    },
-    gulp_typescript_espower_concat2: {
-        srcFile: './test/web/*_test.ts',
-        html: './test/html/concat/test.html',
-        plugins: [typescript({sourcemap: true, out: path.join(__dirname, 'build/gulp/gulp_typescript_espower_concat2/') + 'all_test.js'}), espower()]
-    },
-    gulp_typescript_espower_concat3: {
+    gulp_type_espower_concat: {
         srcFile: './test/web/*_test.ts',
         html: './test/html/concat/test.html',
         plugins: [
