@@ -125,6 +125,17 @@ var gulpScenario = {
             espower(),
             concat('all_test.js')
         ]
+    },
+    gulp_type_concat_espower: {
+        srcFile: './test/web/*_test.ts',
+        html: './test/html/concat/test.html',
+        plugins: [
+            function (stream) {
+                return stream.pipe(ts()).js;
+            },
+            concat('all_test.js'),
+            espower()
+        ]
     }
 };
 

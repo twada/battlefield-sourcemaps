@@ -46,14 +46,14 @@ STATUS
 | JavaScript   | gulp-concat   | gulp-espower  |               | OK     | OK     | OK      |
 | JavaScript   | gulp-espower  | gulp-concat   |               | OK     | OK     | OK      |
 | CoffeeScript | gulp-coffee   | gulp-espower  |               | OK     | OK     | OK      |
-| CoffeeScript | gulp-coffee   | gulp-espower  |               | OK     | OK     | OK      |
-| CoffeeScript | gulp-coffee   | gulp-concat   | gulp-espower  |        |        |         |
-| CoffeeScript | gulp-coffee   | gulp-espower  | gulp-concat   | OK     | OK     | NG(absolute path) |
+| CoffeeScript | gulp-coffee(with sourceRoot) | gulp-espower | | OK     | OK     | OK      |
+| CoffeeScript | gulp-coffee   | gulp-concat   | gulp-espower  | OK     | OK     | OK      |
+| CoffeeScript | gulp-coffee   | gulp-espower  | gulp-concat   | OK     | OK     | OK      |
 | TypeScript   | gulp-tsc      | gulp-espower  |               | ERROR  | N/A    | N/A     |
 | TypeScript   | gulp-tsc      | gulp-espower  | gulp-concat   | ERROR  | N/A    | N/A     |
 | TypeScript   | gulp-type     | gulp-espower  |               | OK     | OK     | OK      |
-| TypeScript   | gulp-type     | gulp-espower  | gulp-concat   | OK     | OK     | NG(absolute path) |
-| TypeScript   | gulp-type     | gulp-concat   | gulp-espower  |        |        |         |
+| TypeScript   | gulp-type     | gulp-concat   | gulp-espower  | OK     | OK     | OK      |
+| TypeScript   | gulp-type     | gulp-espower  | gulp-concat   | OK     | OK     | OK      |
 
 
 
