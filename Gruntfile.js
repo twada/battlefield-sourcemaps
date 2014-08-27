@@ -23,6 +23,19 @@ var gruntScenario = {
         },
         html: './test/html/separated_coffee/test.html',
         tasks: ['clean','copy','coffee','espower','mocha']
+    },
+    grunt_ts_espower: {
+        ts: {
+            src: ['./test/web/*_test.ts'],
+            dest: '<%= paths.grunt_ts_espower.tmpDir %>/ts'
+        },
+        espower: {
+            cwd: '<%= paths.grunt_ts_espower.tmpDir %>/ts',
+            src: ['*_test.js'],
+            dest: '<%= paths.grunt_ts_espower.destDir %>'
+        },
+        html: './test/html/separated_ts/test.html',
+        tasks: ['clean','copy','ts','espower','mocha']
     }
 };
 
@@ -40,6 +53,14 @@ module.exports = function(grunt) {
         clean: {},
         copy: {},
         espower: {},
+        ts: {
+            options: {
+                comments: true,
+                target: 'es5',
+                noImplicitAny: false,
+                sourceMap: true
+            }
+        },
         coffee: {
             options: {
                 sourceMap: true,

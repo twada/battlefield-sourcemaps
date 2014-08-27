@@ -63,8 +63,8 @@ STATUS
 | language     | 1st transform        | 2nd transform | 3rd transform | output | Chrome | Firefox |
 |:-------------|:---------------------|:--------------|:--------------|:-------|:-------|:--------|
 | JavaScript   | grunt-espower        |               |               | OK     | OK     | OK      |
-| CoffeeScript | grunt-contrib-coffee | grunt-espower |               |        |        |         |
-| TypeScript   | grunt-ts             | grunt-espower |               |        |        |         |
+| CoffeeScript | grunt-contrib-coffee | grunt-espower |               | OK     | OK     | OK      |
+| TypeScript   | grunt-ts             | grunt-espower |               | OK     | OK     | OK      |
 
 
 RELATED LINKS
