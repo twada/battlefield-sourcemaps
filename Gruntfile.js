@@ -3,23 +3,41 @@ var TaskDef = require('./lib/task-def');
 var gruntScenario = {
     grunt_espower: {
         espower: {
-            cwd: './test/web/',
-            src: ['*_test.js'],
-            dest: '<%= paths.grunt_espower.destDir %>'
+            files: [
+                {
+                    expand: true,
+                    cwd: './test/web/',
+                    src: ['*_test.js'],
+                    dest: '<%= paths.grunt_espower.destDir %>',
+                    ext: '.js'
+                }
+            ]
         },
         html: './test/html/separated/test.html',
         tasks: ['clean','copy','espower','mocha']
     },
     grunt_coffee_espower: {
         coffee: {
-            cwd: './test/web/',
-            src: ['*_test.coffee'],
-            dest: '<%= paths.grunt_coffee_espower.tmpDir %>/coffee'
+            files: [
+                {
+                    expand: true,
+                    cwd: './test/web/',
+                    src: ['*_test.coffee'],
+                    dest: '<%= paths.grunt_coffee_espower.tmpDir %>/coffee',
+                    ext: '.js'
+                }
+            ]
         },
         espower: {
-            cwd: '<%= paths.grunt_coffee_espower.tmpDir %>/coffee',
-            src: ['*_test.js'],
-            dest: '<%= paths.grunt_coffee_espower.destDir %>'
+            files: [
+                {
+                    expand: true,
+                    cwd: '<%= paths.grunt_coffee_espower.tmpDir %>/coffee',
+                    src: ['*_test.js'],
+                    dest: '<%= paths.grunt_coffee_espower.destDir %>',
+                    ext: '.js'
+                }
+            ]
         },
         html: './test/html/separated_coffee/test.html',
         tasks: ['clean','copy','coffee','espower','mocha']
@@ -27,12 +45,18 @@ var gruntScenario = {
     grunt_ts_espower: {
         ts: {
             src: ['./test/web/*_test.ts'],
-            dest: '<%= paths.grunt_ts_espower.tmpDir %>/ts'
+            outDir: '<%= paths.grunt_ts_espower.tmpDir %>/ts'
         },
         espower: {
-            cwd: '<%= paths.grunt_ts_espower.tmpDir %>/ts',
-            src: ['*_test.js'],
-            dest: '<%= paths.grunt_ts_espower.destDir %>'
+            files: [
+                {
+                    expand: true,
+                    cwd: '<%= paths.grunt_ts_espower.tmpDir %>/ts',
+                    src: ['*_test.js'],
+                    dest: '<%= paths.grunt_ts_espower.destDir %>',
+                    ext: '.js'
+                }
+            ]
         },
         html: './test/html/separated_ts/test.html',
         tasks: ['clean','copy','ts','espower','mocha']
