@@ -56,6 +56,16 @@ STATUS
 | TypeScript   | gulp-type     | gulp-espower  | gulp-concat   | OK     | OK     | OK      |
 
 
+### grunt-espower
+
+[\[WIP\] support multistage sourcemap by vvakame · Pull Request #2 · twada/grunt-espower](https://github.com/twada/grunt-espower/pull/2)
+
+| language     | 1st transform        | 2nd transform | 3rd transform | output | Chrome | Firefox |
+|:-------------|:---------------------|:--------------|:--------------|:-------|:-------|:--------|
+| JavaScript   | grunt-espower        |               |               | OK     |        |         |
+| CoffeeScript | grunt-contrib-coffee | grunt-espower |               |        |        |         |
+| TypeScript   | grunt-ts             | grunt-espower |               |        |        |         |
+
 
 RELATED LINKS
 --------------------
