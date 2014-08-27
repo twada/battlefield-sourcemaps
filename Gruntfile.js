@@ -1,63 +1,30 @@
-var extend = require('xtend/mutable'),
-    path = require('path');
+var TaskDef = require('./lib/task-def');
 
 var gruntScenario = {
     grunt_espower: {
-        test: {
+        espower: {
             cwd: './test/web/',
-            src: ['*_test.js']
+            src: ['*_test.js'],
+            dest: '<%= paths.grunt_espower.destDir %>'
         },
-        html: './test/html/separated/test.html'
+        html: './test/html/separated/test.html',
+        tasks: ['clean','copy','espower','mocha']
+    },
+    grunt_coffee_espower: {
+        coffee: {
+            cwd: './test/web/',
+            src: ['*_test.coffee'],
+            dest: '<%= paths.grunt_coffee_espower.tmpDir %>/coffee'
+        },
+        espower: {
+            cwd: '<%= paths.grunt_coffee_espower.tmpDir %>/coffee',
+            src: ['*_test.js'],
+            dest: '<%= paths.grunt_coffee_espower.destDir %>'
+        },
+        html: './test/html/separated_coffee/test.html',
+        tasks: ['clean','copy','coffee','espower','mocha']
     }
 };
-
-function cleanTask (config, spec) {
-    var cleanConfig = {};
-    cleanConfig[spec.scenarioName] = spec.destDir;
-    extend(config.clean, cleanConfig);
-}
-
-function copyTask (config, spec) {
-    var copyConfig = {};
-    copyConfig[spec.scenarioName] = {
-        files: [
-            {
-                expand: true,  // Enable dynamic expansion.
-                flatten: true, // flattens results to a single level
-                src: [spec.scenario.html], // Actual pattern(s) to match.
-                dest: spec.destDir // Destination path prefix.
-            }
-        ]
-    };
-    extend(config.copy, copyConfig);
-}
-
-function espowerTask (config, spec) {
-    var espowerConfig = {};
-    espowerConfig[spec.scenarioName] = {
-        files: [
-            {
-                expand: true, // Enable dynamic expansion.
-                cwd: spec.scenario.test.cwd, // Src matches are relative to this path.
-                src: spec.scenario.test.src, // Actual pattern(s) to match.
-                dest: spec.destDir, // Destination path prefix.
-                ext: '.js' // Dest filepaths will have this extension.
-            }
-        ]
-    };
-    extend(config.espower, espowerConfig);
-}
-
-function mochaTask (config, spec) {
-    var mochaConfig = {};
-    mochaConfig[spec.scenarioName] = {
-        src: [
-            path.join(spec.destDir, path.basename(spec.scenario.html))
-        ]
-    };
-    extend(config.mocha, mochaConfig);
-}
-
 
 module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-clean');
@@ -69,9 +36,16 @@ module.exports = function(grunt) {
 
     var gruntConfig = {
         pkg: grunt.file.readJSON('package.json'),
+        paths: {},
         clean: {},
         copy: {},
         espower: {},
+        coffee: {
+            options: {
+                sourceMap: true,
+                bare: true
+            }
+        },
         mocha: {
             options: {
                 run: true
@@ -85,20 +59,23 @@ module.exports = function(grunt) {
             scenario: gruntScenario[scenarioName],
             destDir: './build/grunt/' + scenarioName
         };
-        cleanTask(gruntConfig, spec);
-        copyTask(gruntConfig, spec);
-        espowerTask(gruntConfig, spec);
-        mochaTask(gruntConfig, spec);
+        gruntConfig.paths[scenarioName] = {
+            destDir: spec.destDir,
+            tmpDir: './tmp/grunt/' + scenarioName
+        };
+        var definition = new TaskDef(gruntConfig, spec);
+        spec.scenario.tasks.forEach(function (name) {
+            definition[name]();
+        });
     });
 
     grunt.initConfig(gruntConfig);
 
     Object.keys(gruntScenario).forEach(function (scenarioName) {
-        grunt.registerTask(scenarioName, [
-            'clean:' + scenarioName,
-            'copy:' + scenarioName,
-            'espower:' + scenarioName,
-            'mocha:' + scenarioName
-        ]);
+        var scenario = gruntScenario[scenarioName];
+        var taskNames = scenario.tasks.map(function (name) {
+            return name + ':' + scenarioName;
+        });
+        grunt.registerTask(scenarioName, taskNames);
     });
 };
