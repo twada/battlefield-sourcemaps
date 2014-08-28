@@ -40,13 +40,6 @@ var gruntScenario = {
         tasks: ['clean','copy','concat','espower','mocha']
     },
     grunt_espower_concat: {
-        concat: {
-            options: {
-                sourceMap: true
-            },
-            src: '<%= paths.grunt_espower_concat.tmpDir %>/*_test.js',
-            dest: '<%= paths.grunt_espower_concat.destDir %>/all_test.js'
-        },
         espower: {
             files: [
                 {
@@ -57,6 +50,13 @@ var gruntScenario = {
                     ext: '.js'
                 }
             ]
+        },
+        concat: {
+            options: {
+                sourceMap: true
+            },
+            src: '<%= paths.grunt_espower_concat.tmpDir %>/*_test.js',
+            dest: '<%= paths.grunt_espower_concat.destDir %>/all_test.js'
         },
         html: './test/html/concat/test.html',
         tasks: ['clean','copy','espower','concat','mocha']
@@ -142,6 +142,39 @@ var gruntScenario = {
         },
         html: './test/html/concat/test.html',
         tasks: ['clean','copy','coffee','espower','concat','mocha']
+    },
+    grunt_coffee_concat_espower: {
+        coffee: {
+            files: [
+                {
+                    expand: true,
+                    cwd: './test/web/',
+                    src: ['*_test.coffee'],
+                    dest: '<%= paths.grunt_coffee_concat_espower.tmpDir %>/coffee',
+                    ext: '.js'
+                }
+            ]
+        },
+        concat: {
+            options: {
+                sourceMap: true
+            },
+            src: '<%= paths.grunt_coffee_concat_espower.tmpDir %>/coffee/*_test.js',
+            dest: '<%= paths.grunt_coffee_concat_espower.tmpDir %>/concat/all_test.js'
+        },
+        espower: {
+            files: [
+                {
+                    expand: true,
+                    cwd: '<%= paths.grunt_coffee_concat_espower.tmpDir %>/concat',
+                    src: 'all_test.js',
+                    dest: '<%= paths.grunt_coffee_concat_espower.destDir %>',
+                    ext: '.js'
+                }
+            ]
+        },
+        html: './test/html/concat/test.html',
+        tasks: ['clean','copy','coffee','concat','espower','mocha']
     },
     grunt_ts_espower: {
         ts: {

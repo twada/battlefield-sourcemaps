@@ -68,7 +68,7 @@ STATUS
 | JavaScript   | grunt-contrib-concat(sourceMapStype:inline)| grunt-espower |       | OK     | OK     | OK      |
 | CoffeeScript | grunt-contrib-coffee | grunt-espower        |                      | OK     | OK     | OK      |
 | CoffeeScript | grunt-contrib-coffee | grunt-espower        | grunt-contrib-concat | OK     | OK     | OK      |
-| CoffeeScript | grunt-contrib-coffee | grunt-contrib-concat | grunt-espower        |        |        |         |
+| CoffeeScript | grunt-contrib-coffee | grunt-contrib-concat | grunt-espower        | OK     | OK     | OK      |
 | CoffeeScript | grunt-contrib-coffee | grunt-contrib-concat(sourceMapStype:inline)| grunt-espower|    |    |   |
 | TypeScript   | grunt-ts             | grunt-espower        |                      | OK     | OK     | OK      |
 | TypeScript   | grunt-ts (with `out`)| grunt-espower        |                      |        |        |         |
