@@ -73,7 +73,7 @@ STATUS
 | TypeScript   | grunt-ts             | grunt-espower        |                      | OK     | OK     | OK      |
 | TypeScript   | grunt-ts (with `out`)| grunt-espower        |                      | OK     | OK     | OK      |
 | TypeScript   | grunt-ts             | grunt-espower        | grunt-contrib-concat | OK     | OK     | OK      |
-| TypeScript   | grunt-ts             | grunt-contrib-concat | grunt-espower        |        |        |         |
+| TypeScript   | grunt-ts             | grunt-contrib-concat | grunt-espower        | OK     | OK     | OK      |
 | TypeScript   | grunt-ts             | grunt-contrib-concat(sourceMapStype:inline)| grunt-espower |   |   |    |
 
 
