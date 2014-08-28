@@ -64,8 +64,8 @@ STATUS
 |:-------------|:---------------------|:---------------------|:---------------------|:-------|:-------|:--------|
 | JavaScript   | grunt-espower        |                      |                      | OK     | OK     | OK      |
 | JavaScript   | grunt-espower        | grunt-contrib-concat |                      |        |        |         |
-| JavaScript   | grunt-contrib-concat | grunt-espower        |                      |        |        |         |
-| JavaScript   | grunt-contrib-concat(sourceMapStype:inline)| grunt-espower |       |        |        |         |
+| JavaScript   | grunt-contrib-concat | grunt-espower        |                      | OK     | OK     | OK      |
+| JavaScript   | grunt-contrib-concat(sourceMapStype:inline)| grunt-espower |       | OK     | OK     | OK      |
 | CoffeeScript | grunt-contrib-coffee | grunt-espower        |                      | OK     | OK     | OK      |
 | CoffeeScript | grunt-contrib-coffee | grunt-espower        | grunt-contrib-concat |        |        |         |
 | CoffeeScript | grunt-contrib-coffee | grunt-contrib-concat | grunt-espower        |        |        |         |

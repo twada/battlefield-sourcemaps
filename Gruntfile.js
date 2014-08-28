@@ -16,6 +16,51 @@ var gruntScenario = {
         html: './test/html/separated/test.html',
         tasks: ['clean','copy','espower','mocha']
     },
+    grunt_concat_espower: {
+        concat: {
+            options: {
+                sourceMap: true
+            },
+            src: './test/web/*_test.js',
+            dest: '<%= paths.grunt_concat_espower.tmpDir %>/all_test.js'
+        },
+        espower: {
+            files: [
+                {
+                    expand: true,
+                    cwd: '<%= paths.grunt_concat_espower.tmpDir %>',
+                    src: 'all_test.js',
+                    dest: '<%= paths.grunt_concat_espower.destDir %>',
+                    ext: '.js'
+                }
+            ]
+        },
+        html: './test/html/concat/test.html',
+        tasks: ['clean','copy','concat','espower','mocha']
+    },
+    grunt_concatinline_espower: {
+        concat: {
+            options: {
+                sourceMap: true,
+                sourceMapStyle: 'inline'
+            },
+            src: './test/web/*_test.js',
+            dest: '<%= paths.grunt_concatinline_espower.tmpDir %>/all_test.js'
+        },
+        espower: {
+            files: [
+                {
+                    expand: true,
+                    cwd: '<%= paths.grunt_concatinline_espower.tmpDir %>',
+                    src: 'all_test.js',
+                    dest: '<%= paths.grunt_concatinline_espower.destDir %>',
+                    ext: '.js'
+                }
+            ]
+        },
+        html: './test/html/concat/test.html',
+        tasks: ['clean','copy','concat','espower','mocha']
+    },
     grunt_coffee_espower: {
         coffee: {
             files: [
@@ -75,7 +120,11 @@ module.exports = function(grunt) {
     var gruntConfig = {
         pkg: grunt.file.readJSON('package.json'),
         paths: {},
-        clean: {},
+        clean: {
+            build: ['./build/grunt'],
+            tmp: ['./tmp/grunt']
+        },
+        concat: {},
         copy: {},
         espower: {},
         ts: {
