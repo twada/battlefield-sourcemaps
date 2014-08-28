@@ -228,6 +228,25 @@ var gruntScenario = {
         },
         html: './test/html/separated_ts/test.html',
         tasks: ['clean','copy','ts','espower','mocha']
+    },
+    grunt_tsout_espower: {
+        ts: {
+            src: ['./test/web/*_test.ts'],
+            out: '<%= paths.grunt_tsout_espower.tmpDir %>/all_test.js'
+        },
+        espower: {
+            files: [
+                {
+                    expand: true,
+                    cwd: '<%= paths.grunt_tsout_espower.tmpDir %>',
+                    src: 'all_test.js',
+                    dest: '<%= paths.grunt_tsout_espower.destDir %>',
+                    ext: '.js'
+                }
+            ]
+        },
+        html: './test/html/concat/test.html',
+        tasks: ['clean','copy','ts','espower','mocha']
     }
 };
 
