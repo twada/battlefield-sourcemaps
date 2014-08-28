@@ -60,11 +60,21 @@ STATUS
 
 [\[WIP\] support multistage sourcemap by vvakame · Pull Request #2 · twada/grunt-espower](https://github.com/twada/grunt-espower/pull/2)
 
-| language     | 1st transform        | 2nd transform | 3rd transform | output | Chrome | Firefox |
-|:-------------|:---------------------|:--------------|:--------------|:-------|:-------|:--------|
-| JavaScript   | grunt-espower        |               |               | OK     | OK     | OK      |
-| CoffeeScript | grunt-contrib-coffee | grunt-espower |               | OK     | OK     | OK      |
-| TypeScript   | grunt-ts             | grunt-espower |               | OK     | OK     | OK      |
+| language     | 1st transform        | 2nd transform        | 3rd transform        | output | Chrome | Firefox |
+|:-------------|:---------------------|:---------------------|:---------------------|:-------|:-------|:--------|
+| JavaScript   | grunt-espower        |                      |                      | OK     | OK     | OK      |
+| JavaScript   | grunt-espower        | grunt-contrib-concat |                      |        |        |         |
+| JavaScript   | grunt-contrib-concat | grunt-espower        |                      |        |        |         |
+| JavaScript   | grunt-contrib-concat(sourceMapStype:inline)| grunt-espower |       |        |        |         |
+| CoffeeScript | grunt-contrib-coffee | grunt-espower        |                      | OK     | OK     | OK      |
+| CoffeeScript | grunt-contrib-coffee | grunt-espower        | grunt-contrib-concat |        |        |         |
+| CoffeeScript | grunt-contrib-coffee | grunt-contrib-concat | grunt-espower        |        |        |         |
+| CoffeeScript | grunt-contrib-coffee | grunt-contrib-concat(sourceMapStype:inline)| grunt-espower|    |    |   |
+| TypeScript   | grunt-ts             | grunt-espower        |                      | OK     | OK     | OK      |
+| TypeScript   | grunt-ts (with `out`)| grunt-espower        |                      |        |        |         |
+| TypeScript   | grunt-ts             | grunt-espower        | grunt-contrib-concat |        |        |         |
+| TypeScript   | grunt-ts             | grunt-contrib-concat | grunt-espower        |        |        |         |
+| TypeScript   | grunt-ts             | grunt-contrib-concat(sourceMapStype:inline)| grunt-espower |   |   |    |
 
 
 RELATED LINKS
