@@ -11,8 +11,8 @@ HOW TO FIGHT
 
  1. git clone
  2. npm install
- 3. gulp help (or grunt --help)
- 4. gulp [one of scenario] (or grunt [one of scenario])
+ 3. gulp help or grunt --help
+ 4. gulp [one of scenario] or grunt [one of scenario]
  5. gulp serve
  6. visit http://localhost:9001/build
 
@@ -58,7 +58,7 @@ STATUS
 
 ### grunt-espower
 
-[\[WIP\] support multistage sourcemap by vvakame · Pull Request #2 · twada/grunt-espower](https://github.com/twada/grunt-espower/pull/2)
+[support multistage sourcemap by vvakame · Pull Request #2 · twada/grunt-espower](https://github.com/twada/grunt-espower/pull/2)
 
 | language     | 1st transform        | 2nd transform        | 3rd transform        | output | Chrome | Firefox |
 |:-------------|:---------------------|:---------------------|:---------------------|:-------|:-------|:--------|
