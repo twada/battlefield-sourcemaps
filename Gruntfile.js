@@ -19,9 +19,6 @@ var gruntScenario = {
     },
     grunt_concat_espower: {
         concat: {
-            options: {
-                sourceMap: true
-            },
             src: './test/web/*_test.js',
             dest: '<%= paths.grunt_concat_espower.tmpDir %>/all_test.js'
         },
@@ -52,9 +49,6 @@ var gruntScenario = {
             ]
         },
         concat: {
-            options: {
-                sourceMap: true
-            },
             src: '<%= paths.grunt_espower_concat.tmpDir %>/*_test.js',
             dest: '<%= paths.grunt_espower_concat.destDir %>/all_test.js'
         },
@@ -134,9 +128,6 @@ var gruntScenario = {
             ]
         },
         concat: {
-            options: {
-                sourceMap: true
-            },
             src: '<%= paths.grunt_coffee_espower_concat.tmpDir %>/powered/*_test.js',
             dest: '<%= paths.grunt_coffee_espower_concat.destDir %>/all_test.js'
         },
@@ -156,9 +147,6 @@ var gruntScenario = {
             ]
         },
         concat: {
-            options: {
-                sourceMap: true
-            },
             src: '<%= paths.grunt_coffee_concat_espower.tmpDir %>/coffee/*_test.js',
             dest: '<%= paths.grunt_coffee_concat_espower.tmpDir %>/concat/all_test.js'
         },
@@ -247,6 +235,29 @@ var gruntScenario = {
         },
         html: './test/html/concat/test.html',
         tasks: ['clean','copy','ts','espower','mocha']
+    },
+    grunt_ts_espower_concat: {
+        ts: {
+            src: ['./test/web/*_test.ts'],
+            outDir: '<%= paths.grunt_ts_espower_concat.tmpDir %>/ts'
+        },
+        espower: {
+            files: [
+                {
+                    expand: true,
+                    cwd: '<%= paths.grunt_ts_espower_concat.tmpDir %>/ts',
+                    src: ['*_test.js'],
+                    dest: '<%= paths.grunt_ts_espower_concat.tmpDir %>/powered',
+                    ext: '.js'
+                }
+            ]
+        },
+        concat: {
+            src: '<%= paths.grunt_ts_espower_concat.tmpDir %>/powered/*_test.js',
+            dest: '<%= paths.grunt_ts_espower_concat.destDir %>/all_test.js'
+        },
+        html: './test/html/concat/test.html',
+        tasks: ['clean','copy','ts','espower','concat','mocha']
     }
 };
 
@@ -268,7 +279,11 @@ module.exports = function(grunt) {
             build: ['<%= buildDirRoot %>'],
             tmp: ['<%= tmpDirRoot %>']
         },
-        concat: {},
+        concat: {
+            options: {
+                sourceMap: true
+            }
+        },
         copy: {},
         espower: {},
         ts: {
