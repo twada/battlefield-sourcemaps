@@ -38,6 +38,28 @@ var gruntScenario = {
         html: './test/html/concat/test.html',
         tasks: ['clean','copy','concat','espower','mocha']
     },
+    grunt_espower_concat: {
+        concat: {
+            options: {
+                sourceMap: true
+            },
+            src: '<%= paths.grunt_espower_concat.tmpDir %>/*_test.js',
+            dest: '<%= paths.grunt_espower_concat.destDir %>/all_test.js'
+        },
+        espower: {
+            files: [
+                {
+                    expand: true,
+                    cwd: './test/web/',
+                    src: ['*_test.js'],
+                    dest: '<%= paths.grunt_espower_concat.tmpDir %>',
+                    ext: '.js'
+                }
+            ]
+        },
+        html: './test/html/concat/test.html',
+        tasks: ['clean','copy','espower','concat','mocha']
+    },
     grunt_concatinline_espower: {
         concat: {
             options: {

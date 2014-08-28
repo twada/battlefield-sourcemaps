@@ -63,7 +63,7 @@ STATUS
 | language     | 1st transform        | 2nd transform        | 3rd transform        | output | Chrome | Firefox |
 |:-------------|:---------------------|:---------------------|:---------------------|:-------|:-------|:--------|
 | JavaScript   | grunt-espower        |                      |                      | OK     | OK     | OK      |
-| JavaScript   | grunt-espower        | grunt-contrib-concat |                      |        |        |         |
+| JavaScript   | grunt-espower        | grunt-contrib-concat |                      | OK     | OK     | OK      |
 | JavaScript   | grunt-contrib-concat | grunt-espower        |                      | OK     | OK     | OK      |
 | JavaScript   | grunt-contrib-concat(sourceMapStype:inline)| grunt-espower |       | OK     | OK     | OK      |
 | CoffeeScript | grunt-contrib-coffee | grunt-espower        |                      | OK     | OK     | OK      |
