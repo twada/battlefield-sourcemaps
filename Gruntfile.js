@@ -1,3 +1,4 @@
+var path = require('path');
 var TaskDef = require('./lib/task-def');
 
 var gruntScenario = {
@@ -109,6 +110,39 @@ var gruntScenario = {
         html: './test/html/separated_coffee/test.html',
         tasks: ['clean','copy','coffee','espower','mocha']
     },
+    grunt_coffee_espower_concat: {
+        coffee: {
+            files: [
+                {
+                    expand: true,
+                    cwd: './test/web/',
+                    src: ['*_test.coffee'],
+                    dest: '<%= paths.grunt_coffee_espower_concat.tmpDir %>/coffee',
+                    ext: '.js'
+                }
+            ]
+        },
+        espower: {
+            files: [
+                {
+                    expand: true,
+                    cwd: '<%= paths.grunt_coffee_espower_concat.tmpDir %>/coffee',
+                    src: ['*_test.js'],
+                    dest: '<%= paths.grunt_coffee_espower_concat.tmpDir %>/powered',
+                    ext: '.js'
+                }
+            ]
+        },
+        concat: {
+            options: {
+                sourceMap: true
+            },
+            src: '<%= paths.grunt_coffee_espower_concat.tmpDir %>/powered/*_test.js',
+            dest: '<%= paths.grunt_coffee_espower_concat.destDir %>/all_test.js'
+        },
+        html: './test/html/concat/test.html',
+        tasks: ['clean','copy','coffee','espower','concat','mocha']
+    },
     grunt_ts_espower: {
         ts: {
             src: ['./test/web/*_test.ts'],
@@ -141,10 +175,12 @@ module.exports = function(grunt) {
 
     var gruntConfig = {
         pkg: grunt.file.readJSON('package.json'),
+        buildDirRoot: './build/grunt',
+        tmpDirRoot: './tmp/grunt',
         paths: {},
         clean: {
-            build: ['./build/grunt'],
-            tmp: ['./tmp/grunt']
+            build: ['<%= buildDirRoot %>'],
+            tmp: ['<%= tmpDirRoot %>']
         },
         concat: {},
         copy: {},
@@ -174,11 +210,12 @@ module.exports = function(grunt) {
         var spec = {
             scenarioName: scenarioName,
             scenario: gruntScenario[scenarioName],
-            destDir: './build/grunt/' + scenarioName
+            destDir: path.join(gruntConfig.buildDirRoot, scenarioName),
+            tmpDir: path.join(gruntConfig.tmpDirRoot, scenarioName)
         };
         gruntConfig.paths[scenarioName] = {
             destDir: spec.destDir,
-            tmpDir: './tmp/grunt/' + scenarioName
+            tmpDir: spec.tmpDir
         };
         var definition = new TaskDef(gruntConfig, spec);
         spec.scenario.tasks.forEach(function (name) {
