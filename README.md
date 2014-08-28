@@ -10,9 +10,9 @@ HOW TO FIGHT
 [strategy (Japanese)](https://gist.github.com/twada/103d34a3237cecd463a6)
 
  1. git clone
- 2. npm install (and npm link some cloned modules)
- 3. gulp help
- 4. gulp [one of scenario]
+ 2. npm install
+ 3. gulp help (or grunt --help)
+ 4. gulp [one of scenario] (or grunt [one of scenario])
  5. gulp serve
  6. visit http://localhost:9001/build
 
