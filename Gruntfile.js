@@ -281,6 +281,33 @@ var gruntScenario = {
         },
         html: './test/html/concat/test.html',
         tasks: ['clean','copy','ts','concat','espower','mocha']
+    },
+    grunt_ts_concatinline_espower: {
+        ts: {
+            src: ['./test/web/*_test.ts'],
+            outDir: '<%= paths.grunt_ts_concatinline_espower.tmpDir %>/ts'
+        },
+        concat: {
+            options: {
+                sourceMap: true,
+                sourceMapStyle: 'inline'
+            },
+            src: '<%= paths.grunt_ts_concatinline_espower.tmpDir %>/ts/*_test.js',
+            dest: '<%= paths.grunt_ts_concatinline_espower.tmpDir %>/concat/all_test.js'
+        },
+        espower: {
+            files: [
+                {
+                    expand: true,
+                    cwd: '<%= paths.grunt_ts_concatinline_espower.tmpDir %>/concat',
+                    src: 'all_test.js',
+                    dest: '<%= paths.grunt_ts_concatinline_espower.destDir %>',
+                    ext: '.js'
+                }
+            ]
+        },
+        html: './test/html/concat/test.html',
+        tasks: ['clean','copy','ts','concat','espower','mocha']
     }
 };
 
