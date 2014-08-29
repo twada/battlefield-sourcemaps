@@ -76,6 +76,8 @@ STATUS
 | TypeScript   | grunt-ts             | grunt-contrib-concat | grunt-espower        | OK     | OK     | OK      |
 | TypeScript   | grunt-ts             | grunt-contrib-concat(sourceMapStype:inline)| grunt-espower | OK | OK | OK |
 
+[grunt-espower 0.9.0 is now landed!](https://github.com/twada/grunt-espower/releases/tag/v0.9.0)
+
 
 RELATED LINKS
 --------------------
