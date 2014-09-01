@@ -38,7 +38,7 @@ STATUS
 
 ### gulp-espower
 
-[\[WIP\] gulp-sourcemaps support by twada · Pull Request #2 · twada/gulp-espower](https://github.com/twada/gulp-espower/pull/2)
+[gulp-sourcemaps support by twada · Pull Request #2 · twada/gulp-espower](https://github.com/twada/gulp-espower/pull/2)
 
 | language     | 1st transform | 2nd transform | 3rd transform | output | Chrome | Firefox |
 |:-------------|:--------------|:--------------|:--------------|:-------|:-------|:--------|
@@ -54,6 +54,8 @@ STATUS
 | TypeScript   | gulp-type     | gulp-espower  |               | OK     | OK     | OK      |
 | TypeScript   | gulp-type     | gulp-concat   | gulp-espower  | OK     | OK     | OK      |
 | TypeScript   | gulp-type     | gulp-espower  | gulp-concat   | OK     | OK     | OK      |
+
+[gulp-espower 0.9.0 is now landed!](https://github.com/twada/gulp-espower/releases/tag/v0.9.0)
 
 
 ### grunt-espower
