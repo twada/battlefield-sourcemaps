@@ -3,6 +3,6 @@
   "description": "Fighting with sourcemaps",
   "devDependencies": {
     "mocha": "~1.21.4",
-    "power-assert": "~0.8.0"
+    "power-assert": "~0.9.0"
   }
 }
