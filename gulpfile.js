@@ -242,4 +242,4 @@ gulp.task('serve', function() {
         }));
 });
 
-gulp.task('help', taskListing.withFilters(/:/));
+gulp.task('help', taskListing.withFilters(/:/, /(?:setup|test|clean|build):/));
