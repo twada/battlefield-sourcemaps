@@ -1,9 +1,10 @@
-describe('JS various types', function(){
+describe('いろいろな型を試す', function(){
     function Person(name, age) {
         this.name = name;
         this.age = age;
     }
     beforeEach(function(){
+        // ここにも日本語コメント
         this.types = [
             'string', 98.6, true, false, null, undefined,
             ['nested', 'array'],

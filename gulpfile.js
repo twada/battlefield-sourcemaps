@@ -12,6 +12,7 @@ var gulp = require('gulp'),
     typescript = require('gulp-tsc'),
     espower = require('gulp-espower'),
     sourcemaps = require('gulp-sourcemaps'),
+    utf8ize = require('gulp-utf8ize-sourcemaps'),
     glob = require('glob'),
     source = require('vinyl-source-stream'),
     browserify = require('browserify'),
@@ -171,6 +172,7 @@ Object.keys(gulpScenario).forEach(function (scenarioName) {
         //         return path.relative(__dirname, file.base);
         //     }
         // }));
+        stream = stream.pipe(utf8ize());
         stream = stream.pipe(gulp.dest(destDir));
         return stream;
     });
@@ -211,6 +213,7 @@ Object.keys(browserifyScenario).forEach(function (scenarioName) {
         return b.bundle()
             .pipe(mold.transformSourcesRelativeTo(__dirname))
             .pipe(source('all_test.js'))
+            .pipe(utf8ize())
             .pipe(gulp.dest(destDir));
     });
     gulp.task('test:' + scenarioName, ['build:' + scenarioName], function () {

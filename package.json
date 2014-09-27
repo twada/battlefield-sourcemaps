@@ -45,6 +45,7 @@
     "gulp-task-listing": "^0.3.0",
     "gulp-tsc": "^0.9.2",
     "gulp-type": "^0.2.0",
+    "gulp-utf8ize-sourcemaps": "^0.1.0",
     "gulp-util": "^3.0.0",
     "gulp-webserver": "^0.6.0",
     "mold-source-map": "^0.3.0",
