@@ -2,7 +2,7 @@
   "name": "battlefield-sourcemaps",
   "description": "Fighting with sourcemaps",
   "devDependencies": {
-    "mocha": "~1.21.4",
+    "mocha": "~2.0.1",
     "power-assert": "~0.9.1"
   }
 }
