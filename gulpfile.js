@@ -43,6 +43,10 @@ var browserifyScenario = {
         srcFile: './test/es6/es6_array_test.js',
         transform: ['es6ify', 'espowerify']
     },
+    single_6to5_espowerify: {
+        srcFile: './test/es6/es6_array_test.js',
+        transform: ['6to5ify', 'espowerify']
+    },
     single_ts_espowerify: {
         srcFile: './test/node/typescript_array_test.ts',
         plugins: ['tsify'],

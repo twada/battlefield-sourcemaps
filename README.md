@@ -30,7 +30,8 @@ STATUS
 | JavaScript        | espowerify    |               | OK     | OK     | OK      |
 | CoffeeScript      | coffeeify     | espowerify    | OK     | OK     | OK      |
 | js & coffee mixed | coffeeify     | espowerify    | OK     | OK     | OK      |
-| EcmaScript6       | es6ify        | espowerify    | OK     | OK     | OK      |
+| ES6               | es6ify        | espowerify    | OK     | OK     | OK      |
+| ES6               | 6to5ify       | espowerify    | OK     |        |         |
 | TypeScript        | tsify         | espowerify    | OK     | OK     | OK      |
 
 [espowerify 0.9.0 is now landed!](https://github.com/twada/espowerify/releases/tag/v0.9.0)
