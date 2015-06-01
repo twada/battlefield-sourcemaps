@@ -31,7 +31,7 @@ STATUS
 | CoffeeScript      | coffeeify     | espowerify    | OK     | OK     | OK      |
 | js & coffee mixed | coffeeify     | espowerify    | OK     | OK     | OK      |
 | ES6               | es6ify        | espowerify    | OK     | OK     | OK      |
-| ES6               | 6to5ify       | espowerify    | OK     | OK     | OK      |
+| ES6               | babelify      | espowerify    | OK     | OK     | OK      |
 | TypeScript        | tsify         | espowerify    | OK     | OK     | OK      |
 
 [espowerify 0.9.0 is now landed!](https://github.com/twada/espowerify/releases/tag/v0.9.0)
@@ -102,7 +102,7 @@ RELATED LINKS
 - [browserify v2 adds source maps](http://thlorenz.com/blog/browserify-sourcemaps)
 - [jnordberg/coffeeify](https://github.com/jnordberg/coffeeify)
 - [thlorenz/es6ify](https://github.com/thlorenz/es6ify)
-- [6to5/6to5ify](https://github.com/6to5/6to5ify)
+- [babel/babelify](https://github.com/babel/babelify)
 - [smrq/tsify](https://github.com/smrq/tsify)
 - [Source maps not working with Firefox · Issue #681 · substack/node-browserify](https://github.com/substack/node-browserify/issues/681) -> use mold-source-map
 - [gulp - Browserify source map only makes the root file accesible (caused by absolute path names) - Stack Overflow](http://stackoverflow.com/questions/25303585/browserify-source-map-only-makes-the-root-file-accesible-caused-by-absolute-pat) -> use mold-source-map
