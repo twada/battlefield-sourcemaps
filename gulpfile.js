@@ -1,22 +1,23 @@
-var gulp = require('gulp'),
-    gutil = require('gulp-util'),
-    taskListing = require('gulp-task-listing'),
-    webserver = require('gulp-webserver'),
-    mochaPhantomJS = require('gulp-mocha-phantomjs'),
-    del = require('del'),
-    path = require('path'),
-    tap = require('gulp-tap'),
-    concat = require('gulp-concat'),
-    coffee = require('gulp-coffee'),
-    ts = require('gulp-type'),
-    typescript = require('gulp-tsc'),
-    espower = require('gulp-espower'),
-    sourcemaps = require('gulp-sourcemaps'),
-    utf8ize = require('gulp-utf8ize-sourcemaps'),
-    glob = require('glob'),
-    source = require('vinyl-source-stream'),
-    browserify = require('browserify'),
-    mold = require('mold-source-map');
+var gulp = require('gulp');
+var gutil = require('gulp-util');
+var taskListing = require('gulp-task-listing');
+var webserver = require('gulp-webserver');
+var mochaPhantomJS = require('gulp-mocha-phantomjs');
+var del = require('del');
+var path = require('path');
+var tap = require('gulp-tap');
+var concat = require('gulp-concat');
+var coffee = require('gulp-coffee');
+var ts = require('gulp-type');
+var typescript = require('gulp-tsc');
+var espower = require('gulp-espower');
+var sourcemaps = require('gulp-sourcemaps');
+var utf8ize = require('gulp-utf8ize-sourcemaps');
+var glob = require('glob');
+var source = require('vinyl-source-stream');
+var browserify = require('browserify');
+var mold = require('mold-source-map');
+var babelify = require("babelify");
 
 var browserifyScenario = {
     single_js_espowerify: {
@@ -40,12 +41,18 @@ var browserifyScenario = {
         transform: ['coffeeify', 'espowerify']
     },
     single_es6_espowerify: {
-        srcFile: './test/es6/es6_array_test.js',
+        srcFile: './test/es6/es6_test.js',
         transform: ['es6ify', 'espowerify']
     },
-    single_6to5_espowerify: {
-        srcFile: './test/es6/es6_array_test.js',
-        transform: ['6to5ify', 'espowerify']
+    single_babelify_babel_plugin_espower: {
+        srcFile: './test/es6/es6_test.js',
+        transform: [babelify.configure({
+            plugins: ['babel-plugin-espower']
+        })]
+    },
+    single_babelify_espowerify: {
+        srcFile: './test/es6/es6_test.js',
+        transform: ['babelify', 'espowerify']
     },
     single_ts_espowerify: {
         srcFile: './test/node/typescript_array_test.ts',
