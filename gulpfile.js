@@ -20,46 +20,33 @@ var mold = require('mold-source-map');
 var babelify = require("babelify");
 
 var browserifyScenario = {
-    single_js_espowerify: {
-        srcFile: './test/node/js_array_test.js',
-        transform: ['espowerify']
-    },
-    multi_js_espowerify: {
+    browserify_espowerify: {
         srcFile: './test/node/*_test.js',
         transform: ['espowerify']
     },
-    single_coffee_coffeeify_espowerify: {
-        srcFile: './test/node/coffee_array_test.coffee',
-        transform: ['coffeeify', 'espowerify']
-    },
-    multi_coffee_coffeeify_espowerify: {
+    browserify_coffeeify_espowerify: { // absolute path
         srcFile: './test/node/*_test.coffee',
         transform: ['coffeeify', 'espowerify']
     },
-    mixture_coffeeify_espowerify: {
+    browserify_mixture_coffeeify_espowerify: { // coffee だけ absolute path
         srcFile: './test/node/*_test.{js,coffee}',
         transform: ['coffeeify', 'espowerify']
     },
-    single_es6_espowerify: {
-        srcFile: './test/es6/es6_test.js',
+    browserify_es6ify_espowerify: {
+        srcFile: './test/es6/*_test.js',
         transform: ['es6ify', 'espowerify']
     },
-    single_babelify_babel_plugin_espower: {
-        srcFile: './test/es6/es6_test.js',
+    browserify_babelify_babel_plugin_espower: {
+        srcFile: './test/es6/*_test.js',
         transform: [babelify.configure({
             plugins: ['babel-plugin-espower']
         })]
     },
-    single_babelify_espowerify: {
-        srcFile: './test/es6/es6_test.js',
+    browserify_babelify_espowerify: {
+        srcFile: './test/es6/*_test.js',
         transform: ['babelify', 'espowerify']
     },
-    single_ts_espowerify: {
-        srcFile: './test/node/typescript_array_test.ts',
-        plugins: ['tsify'],
-        transform: ['espowerify']
-    },
-    multi_ts_espowerify: {
+    browserify_tsify_espowerify: {
         srcFile: './test/node/*_test.ts',
         plugins: ['tsify'],
         transform: ['espowerify']
