@@ -11,15 +11,15 @@ describe('TS various types', () => {
     }
     it('demo', () => {
         var types = [
+            new Person('alice', 3),
             'string', 98.6, true, false, null, undefined,
             ['nested', 'array'],
             {object: true},
             NaN, Infinity,
-            /^not/,
-            new Person('alice', 3)
+            /^not/
         ];
-        var index = types.length -1,
+        var zero = 0,
             bob = new Person('bob', 5);
-        assert(types[index].name === bob.name);
+        assert.deepEqual(types[zero], bob);
     });
 });

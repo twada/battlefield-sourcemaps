@@ -26,12 +26,12 @@ var browserifyScenario = {
         srcFile: './test/node/*_test.js',
         transform: ['espowerify']
     },
-    browserify_coffeeify_espowerify: { // absolute path
+    browserify_coffeeify_espowerify: {
         type: ['coffee'],
         srcFile: './test/node/*_test.coffee',
         transform: ['coffeeify', 'espowerify']
     },
-    browserify_mixture_coffeeify_espowerify: { // coffee だけ absolute path
+    browserify_mixture_coffeeify_espowerify: {
         type: ['js', 'coffee'],
         srcFile: './test/node/*_test.{js,coffee}',
         transform: ['coffeeify', 'espowerify']
@@ -58,7 +58,13 @@ var browserifyScenario = {
         srcFile: './test/node/*_test.ts',
         plugins: ['tsify'],
         transform: ['espowerify']
-    }
+    },
+    browserify_mixture_tsify_espowerify: {
+        type: ['js', 'ts'],
+        srcFile: './test/node/*_test.{js,ts}',
+        plugins: ['tsify'],
+        transform: ['espowerify']
+    },
 };
 
 var gulpScenario = {
