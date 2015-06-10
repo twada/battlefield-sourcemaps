@@ -2,6 +2,7 @@ var gulp = require('gulp');
 var gutil = require('gulp-util');
 var taskListing = require('gulp-task-listing');
 var webserver = require('gulp-webserver');
+var mocha = require('gulp-mocha');
 var mochaPhantomJS = require('gulp-mocha-phantomjs');
 var del = require('del');
 var path = require('path');
@@ -21,32 +22,39 @@ var babelify = require("babelify");
 
 var browserifyScenario = {
     browserify_espowerify: {
+        type: ['js'],
         srcFile: './test/node/*_test.js',
         transform: ['espowerify']
     },
     browserify_coffeeify_espowerify: { // absolute path
+        type: ['coffee'],
         srcFile: './test/node/*_test.coffee',
         transform: ['coffeeify', 'espowerify']
     },
     browserify_mixture_coffeeify_espowerify: { // coffee だけ absolute path
+        type: ['js', 'coffee'],
         srcFile: './test/node/*_test.{js,coffee}',
         transform: ['coffeeify', 'espowerify']
     },
     browserify_es6ify_espowerify: {
+        type: ['es6'],
         srcFile: './test/es6/*_test.js',
         transform: ['es6ify', 'espowerify']
     },
     browserify_babelify_babel_plugin_espower: {
+        type: ['es6'],
         srcFile: './test/es6/*_test.js',
         transform: [babelify.configure({
             plugins: ['babel-plugin-espower']
         })]
     },
     browserify_babelify_espowerify: {
+        type: ['es6'],
         srcFile: './test/es6/*_test.js',
         transform: ['babelify', 'espowerify']
     },
     browserify_tsify_espowerify: {
+        type: ['ts'],
         srcFile: './test/node/*_test.ts',
         plugins: ['tsify'],
         transform: ['espowerify']
@@ -177,13 +185,29 @@ Object.keys(gulpScenario).forEach(function (scenarioName) {
     gulp.task('test:' + scenarioName, ['build:' + scenarioName], function () {
         return gulp
             .src(path.join(destDir, 'test.html'))
-            .pipe(mochaPhantomJS({reporter: 'dot'}));
+            .pipe(mochaPhantomJS({reporter: 'dot', dump: 'actual.txt'}))
+            .on('error', function (err) {
+                this.emit('end');
+            });
+    });
+    gulp.task('verify:' + scenarioName, ['test:' + scenarioName], function () {
+        var files = scenario.type.map(function (type) {
+            return 'test/verification/' + type + '_output_test.js';
+        });
+        return gulp
+            .src(files, {read: false})
+            .pipe(mocha({
+                ui: 'bdd',
+                reporter: 'dot'
+            }))
+            .on('error', gutil.log);
     });
     gulp.task(scenarioName, [
         'clean:' + scenarioName,
         'setup:' + scenarioName,
         'build:' + scenarioName,
-        'test:' + scenarioName
+        'test:' + scenarioName,
+        'verify:' + scenarioName
     ]);
 });
 
@@ -191,7 +215,7 @@ Object.keys(browserifyScenario).forEach(function (scenarioName) {
     var scenario = browserifyScenario[scenarioName];
     var destDir = './build/browserify/' + scenarioName;
     gulp.task('clean:' + scenarioName, function (done) {
-        del([destDir], done);
+        del(['actual.txt', destDir], done);
     });
     gulp.task('setup:' + scenarioName, ['clean:' + scenarioName], function () {
         return gulp.src('./test/html/browserify/test.html')
@@ -217,13 +241,29 @@ Object.keys(browserifyScenario).forEach(function (scenarioName) {
     gulp.task('test:' + scenarioName, ['build:' + scenarioName], function () {
         return gulp
             .src(path.join(destDir, 'test.html'))
-            .pipe(mochaPhantomJS({reporter: 'dot'}));
+            .pipe(mochaPhantomJS({reporter: 'dot', dump: 'actual.txt'}))
+            .on('error', function (err) {
+                this.emit('end');
+            });
+    });
+    gulp.task('verify:' + scenarioName, ['test:' + scenarioName], function () {
+        var files = scenario.type.map(function (type) {
+            return 'test/verification/' + type + '_output_test.js';
+        });
+        return gulp
+            .src(files, {read: false})
+            .pipe(mocha({
+                ui: 'bdd',
+                reporter: 'dot'
+            }))
+            .on('error', gutil.log);
     });
     gulp.task(scenarioName, [
         'clean:' + scenarioName,
         'setup:' + scenarioName,
         'build:' + scenarioName,
-        'test:' + scenarioName
+        'test:' + scenarioName,
+        'verify:' + scenarioName
     ]);
 });
 
@@ -243,4 +283,4 @@ gulp.task('serve', function() {
         }));
 });
 
-gulp.task('help', taskListing.withFilters(/:/, /(?:setup|test|clean|build):/));
+gulp.task('help', taskListing.withFilters(/:/, /(?:setup|test|clean|build|verify):/));

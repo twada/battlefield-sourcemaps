@@ -20,6 +20,7 @@
     "url": "http://twada.mit-license.org/2014-2015"
   },
   "devDependencies": {
+    "array-find": "^1.0.0",
     "babel-plugin-espower": "file:../../power-assert-js/babel-plugin-espower",
     "babelify": "^6.1.2",
     "browserify": "^10.2.1",
@@ -43,6 +44,7 @@
     "gulp-concat": "^2.5.2",
     "gulp-concat-sourcemap": "^1.3.1",
     "gulp-espower": "file:../../power-assert-js/gulp-espower",
+    "gulp-mocha": "^2.1.1",
     "gulp-mocha-phantomjs": "^0.6.1",
     "gulp-sourcemaps": "^1.5.2",
     "gulp-tap": "^0.1.3",
@@ -52,8 +54,11 @@
     "gulp-utf8ize-sourcemaps": "^0.1.0",
     "gulp-util": "^3.0.4",
     "gulp-webserver": "^0.9.1",
+    "lstream": "0.0.4",
+    "mocha": "^2.2.5",
     "mold-source-map": "^0.4.0",
     "power-assert": "^0.11.0",
+    "trim": "0.0.1",
     "tsify": "^0.11.0",
     "vinyl-source-stream": "^1.1.0",
     "xtend": "^4.0.0"
