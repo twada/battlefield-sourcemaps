@@ -7,7 +7,8 @@ var find = require('array-find');
 module.exports = function diagramRenderingTest (key, outputPath, outputPatterns) {
 
     it(key + ': diagram rendering', function (done) {
-        var patterns = [].concat(outputPatterns).map(trim);
+        // var patterns = [].concat(outputPatterns).map(trim);
+        var patterns = [].concat(outputPatterns);
         var output = fs.createReadStream(outputPath, 'utf8');
         var matched = [];
         output.pipe(new LineStream())
@@ -15,8 +16,8 @@ module.exports = function diagramRenderingTest (key, outputPath, outputPatterns)
                 var foundIndex;
                 var found = find(patterns, function (pattern, idx) {
                     foundIndex = idx;
-                    // return line === pattern;
-                    return trim(line) === pattern;
+                    return line === pattern;
+                    // return trim(line) === pattern;
                 });
                 if (found) {
                     matched.push(found);

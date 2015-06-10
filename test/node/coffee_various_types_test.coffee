@@ -12,8 +12,6 @@ describe "Coffee various types", ->
       98.6
       true
       false
-      null
-      `undefined`
       [
         "nested"
         "array"
@@ -25,9 +23,10 @@ describe "Coffee various types", ->
       Infinity
       /^not/
       new Person("alice", 3)
+      null
+      `undefined`
     ]
 
   it "demo", ->
-    index = @types.length - 1
     bob = new Person("bob", 5)
-    assert @types[index].name is bob.name
+    assert @types[@types.length - 3].age is bob.age
