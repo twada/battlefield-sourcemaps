@@ -65,6 +65,12 @@ var browserifyScenario = {
         plugins: ['tsify'],
         transform: ['espowerify']
     },
+    browserify_mixture_tsify_coffeeify_espowerify: {
+        type: ['js', 'ts', 'coffee'],
+        srcFile: './test/node/*_test.{js,ts,coffee}',
+        plugins: ['tsify'],
+        transform: ['coffeeify', 'espowerify']
+    }
 };
 
 var gulpScenario = {
