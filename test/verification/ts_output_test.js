@@ -1,8 +1,15 @@
 var path = require('path');
 var actualOutputPath = path.join(__dirname, '..', '..', 'actual.txt');
 var diagramRenderingTest = require('./diagram-rendering');
+var assertionLineNumberTest = require('./line-number');
 
 describe('TypeScript power-assert output verification', function () {
+
+    assertionLineNumberTest('TypeScript', actualOutputPath, [
+        '      AssertionError:   # test/node/typescript_array_test.ts:12',
+        '     AssertionError:   # test/node/typescript_array_test.ts:17',
+        '      AssertionError:   # test/node/typescript_various_types_test.ts:23',
+    ]);
 
     diagramRenderingTest('TypeScript', actualOutputPath, [
 

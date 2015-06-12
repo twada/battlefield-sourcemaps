@@ -1,13 +1,20 @@
 var path = require('path');
 var actualOutputPath = path.join(__dirname, '..', '..', 'actual.txt');
 var diagramRenderingTest = require('./diagram-rendering');
+var assertionLineNumberTest = require('./line-number');
 
 describe('CoffeeScript power-assert output verification', function () {
+
+    assertionLineNumberTest('Coffee', actualOutputPath, [
+        '      AssertionError:   # test/node/coffee_array_test.coffee:17',
+        '      AssertionError:   # test/node/coffee_array_test.coffee:22',
+        '      AssertionError:   # test/node/coffee_various_types_test.coffee:32',
+    ]);
 
     diagramRenderingTest('Coffee', actualOutputPath, [
 
         // 1) Coffee Array#indexOf:
-        '      AssertionError:   # test/node/coffee_array_test.coffee:17',
+        // '      AssertionError:   # test/node/coffee_array_test.coffee:17',
         '  assert.ok(this.ary.indexOf(nine) === seven)',
         '                 |   |       |     |   |     ',
         '                 |   |       |     |   7     ',
@@ -19,7 +26,7 @@ describe('CoffeeScript power-assert output verification', function () {
         '  => 4',
 
         // 2) Coffee Array#concat:
-        '      AssertionError:   # test/node/coffee_array_test.coffee:22',
+        // '      AssertionError:   # test/node/coffee_array_test.coffee:22',
         '  assert.deepEqual(this.ary.concat(another), expected)',
         '                        |   |      |         |        ',
         '                        |   |      |         [5,6,7,8,9]',
@@ -28,7 +35,7 @@ describe('CoffeeScript power-assert output verification', function () {
         '                        [5,6,7,8,9,10]                ',
 
         // 3) Coffee various types demo:
-        '      AssertionError:   # test/node/coffee_various_types_test.coffee:32',
+        // '      AssertionError:   # test/node/coffee_various_types_test.coffee:32',
         '  assert(this.types[this.types.length - 3].age === bob.age)',
         '              |    |     |     |      |    |   |   |   |   ',
         '              |    |     |     |      |    |   |   |   5   ',

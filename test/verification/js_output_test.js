@@ -1,12 +1,18 @@
 var path = require('path');
 var actualOutputPath = path.join(__dirname, '..', '..', 'actual.txt');
 var diagramRenderingTest = require('./diagram-rendering');
+var assertionLineNumberTest = require('./line-number');
 
 describe('JS power-assert output verification', function () {
 
+    assertionLineNumberTest('JS', actualOutputPath, [
+        '      AssertionError:   # test/node/js_array_test.js:10',
+        '      AssertionError: メッセージ   # test/node/js_array_test.js:14',
+        '      AssertionError:   # test/node/js_various_types_test.js:22',
+    ]);
+
     diagramRenderingTest('JS', actualOutputPath, [
         // 配列のテスト should return index when the value is present:
-        '      AssertionError:   # test/node/js_array_test.js:10',
         '  assert(this.ary.indexOf(who) === two)',
         '              |   |       |    |   |   ',
         '              |   |       |    |   2   ',
@@ -19,7 +25,6 @@ describe('JS power-assert output verification', function () {
         '  => -1',
 
         // 配列のテスト should return -1 when the value is not present:
-        '      AssertionError: メッセージ   # test/node/js_array_test.js:14',
         '  assert.ok(this.ary.indexOf(two) === minusOne, "メッセージ")',
         '                 |   |       |    |   |                      ',
         '                 |   |       |    |   -1                     ',
@@ -31,7 +36,6 @@ describe('JS power-assert output verification', function () {
         '  => 1',
 
         // いろいろな型を試す demo
-        '      AssertionError:   # test/node/js_various_types_test.js:22',
         '  assert(this.types[index].name === bob.name)',
         '              |    ||      |    |   |   |    ',
         '              |    ||      |    |   |   "bob"',
