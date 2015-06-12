@@ -171,12 +171,42 @@ var gulpScenario = {
     }
 };
 
-Object.keys(gulpScenario).forEach(function (scenarioName) {
-    var scenario = gulpScenario[scenarioName];
-    var destDir = './build/gulp/' + scenarioName;
+function buildTasks (scenarioName, scenario, destDir) {
     gulp.task('clean:' + scenarioName, function (done) {
         del(['actual.txt', destDir], done);
     });
+    gulp.task('test:' + scenarioName, ['build:' + scenarioName], function () {
+        return gulp
+            .src(path.join(destDir, 'test.html'))
+            .pipe(mochaPhantomJS({reporter: 'dot', dump: 'actual.txt'}))
+            .on('error', function (err) {
+                this.emit('end');
+            });
+    });
+    gulp.task('verify:' + scenarioName, ['test:' + scenarioName], function () {
+        var files = scenario.type.map(function (type) {
+            return 'test/verification/' + type + '_output_test.js';
+        });
+        return gulp
+            .src(files, {read: false})
+            .pipe(mocha({
+                ui: 'bdd',
+                reporter: 'spec'
+            }))
+            .on('error', gutil.log);
+    });
+    gulp.task(scenarioName, [
+        'clean:' + scenarioName,
+        'setup:' + scenarioName,
+        'build:' + scenarioName,
+        'test:' + scenarioName,
+        'verify:' + scenarioName
+    ]);
+}
+
+Object.keys(gulpScenario).forEach(function (scenarioName) {
+    var scenario = gulpScenario[scenarioName];
+    var destDir = './build/gulp/' + scenarioName;
     gulp.task('setup:' + scenarioName, ['clean:' + scenarioName], function () {
         return gulp.src(scenario.html)
             .pipe(gulp.dest(destDir));
@@ -207,41 +237,12 @@ Object.keys(gulpScenario).forEach(function (scenarioName) {
         stream = stream.pipe(gulp.dest(destDir));
         return stream;
     });
-    gulp.task('test:' + scenarioName, ['build:' + scenarioName], function () {
-        return gulp
-            .src(path.join(destDir, 'test.html'))
-            .pipe(mochaPhantomJS({reporter: 'dot', dump: 'actual.txt'}))
-            .on('error', function (err) {
-                this.emit('end');
-            });
-    });
-    gulp.task('verify:' + scenarioName, ['test:' + scenarioName], function () {
-        var files = scenario.type.map(function (type) {
-            return 'test/verification/' + type + '_output_test.js';
-        });
-        return gulp
-            .src(files, {read: false})
-            .pipe(mocha({
-                ui: 'bdd',
-                reporter: 'spec'
-            }))
-            .on('error', gutil.log);
-    });
-    gulp.task(scenarioName, [
-        'clean:' + scenarioName,
-        'setup:' + scenarioName,
-        'build:' + scenarioName,
-        'test:' + scenarioName,
-        'verify:' + scenarioName
-    ]);
+    buildTasks(scenarioName, scenario, destDir);
 });
 
 Object.keys(browserifyScenario).forEach(function (scenarioName) {
     var scenario = browserifyScenario[scenarioName];
     var destDir = './build/browserify/' + scenarioName;
-    gulp.task('clean:' + scenarioName, function (done) {
-        del(['actual.txt', destDir], done);
-    });
     gulp.task('setup:' + scenarioName, ['clean:' + scenarioName], function () {
         return gulp.src('./test/html/browserify/test.html')
             .pipe(gulp.dest(destDir));
@@ -263,33 +264,7 @@ Object.keys(browserifyScenario).forEach(function (scenarioName) {
             .pipe(utf8ize())
             .pipe(gulp.dest(destDir));
     });
-    gulp.task('test:' + scenarioName, ['build:' + scenarioName], function () {
-        return gulp
-            .src(path.join(destDir, 'test.html'))
-            .pipe(mochaPhantomJS({reporter: 'dot', dump: 'actual.txt'}))
-            .on('error', function (err) {
-                this.emit('end');
-            });
-    });
-    gulp.task('verify:' + scenarioName, ['test:' + scenarioName], function () {
-        var files = scenario.type.map(function (type) {
-            return 'test/verification/' + type + '_output_test.js';
-        });
-        return gulp
-            .src(files, {read: false})
-            .pipe(mocha({
-                ui: 'bdd',
-                reporter: 'spec'
-            }))
-            .on('error', gutil.log);
-    });
-    gulp.task(scenarioName, [
-        'clean:' + scenarioName,
-        'setup:' + scenarioName,
-        'build:' + scenarioName,
-        'test:' + scenarioName,
-        'verify:' + scenarioName
-    ]);
+    buildTasks(scenarioName, scenario, destDir);
 });
 
 gulp.task('clean', function (done) {
