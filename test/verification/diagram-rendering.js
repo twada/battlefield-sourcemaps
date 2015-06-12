@@ -13,9 +13,7 @@ module.exports = function diagramRenderingTest (key, outputPath, outputPatterns)
         var matched = [];
         output.pipe(new LineStream())
             .on('data', function (line) {
-                var foundIndex;
                 var found = find(patterns, function (pattern, idx) {
-                    foundIndex = idx;
                     return line === pattern;
                     // return trim(line) === pattern;
                 });

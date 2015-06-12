@@ -6,14 +6,14 @@ var assertionLineNumberTest = require('./line-number');
 describe('ES6 power-assert output verification', function () {
 
     assertionLineNumberTest('ES6', actualOutputPath, [
-        '      AssertionError:   # test/es6/arrowfunction_and_spread_test.js:7',
-        '      AssertionError:   # test/es6/destructuring_and_templateliteral_test.js:7',
-        '     AssertionError:   # test/es6/enhanced_object_literal_test.js:7',
+            /^\s*AssertionError:\s*\#\s*(?:test\/es6\/)?arrowfunction_and_spread_test.js\:7$/,
+            /^\s*AssertionError:\s*\#\s*(?:test\/es6\/)?destructuring_and_templateliteral_test.js\:7$/,
+            /^\s*AssertionError:\s*\#\s*(?:test\/es6\/)?enhanced_object_literal_test.js\:7$/
     ]);
 
     diagramRenderingTest('ES6', actualOutputPath, [
+
         // ES6 demo 1 ArrowFunctionExpression and SpreadElement:
-        // '      AssertionError:   # test/es6/arrowfunction_and_spread_test.js:7',
         '  assert(seven === ((v, i) => v + i)(...[...ary]))',
         '         |     |   |                    |   |     ',
         '         |     |   |                    |   [4,5] ',
@@ -25,7 +25,6 @@ describe('ES6 power-assert output verification', function () {
         '  => 7',
 
         // ES6 demo 2 Destructuring and TemplateLiteral:
-        // '      AssertionError:   # test/es6/destructuring_and_templateliteral_test.js:7',
         '  assert(`${ alice.name } and ${ bob.name }` === `bob and alice`)',
         '         |   |     |             |   |       |   |               ',
         '         |   |     |             |   |       |   "bob and alice" ',
@@ -40,7 +39,6 @@ describe('ES6 power-assert output verification', function () {
         '  +alice and bob',
 
         // ES6 demo 3 Enhanced Object Literals:
-        // '     AssertionError:   # test/es6/enhanced_object_literal_test.js:7',
         '  assert.deepEqual({name,[`${ name }\'s greet`]: `Hello, I\'m ${ name }`}, null)',
         '                   |      |   |                 |              |              ',
         '                   |      |   |                 |              "bobby"        ',

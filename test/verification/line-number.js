@@ -12,10 +12,8 @@ module.exports = function assertionLineNumberTest (key, outputPath, outputPatter
         var matched = [];
         output.pipe(new LineStream())
             .on('data', function (line) {
-                var foundIndex;
                 var found = find(patterns, function (pattern, idx) {
-                    foundIndex = idx;
-                    return line === pattern;
+                    return pattern.test(line);
                 });
                 if (found) {
                     matched.push(found);

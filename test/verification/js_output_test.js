@@ -6,9 +6,9 @@ var assertionLineNumberTest = require('./line-number');
 describe('JS power-assert output verification', function () {
 
     assertionLineNumberTest('JS', actualOutputPath, [
-        '      AssertionError:   # test/node/js_array_test.js:10',
-        '      AssertionError: メッセージ   # test/node/js_array_test.js:14',
-        '      AssertionError:   # test/node/js_various_types_test.js:22',
+            /^\s*AssertionError:\s*\#\s*(?:test\/node\/)?js_array_test.js\:10$/,
+            /^\s*AssertionError:\s*メッセージ\s*\#\s*(?:test\/node\/)?js_array_test.js\:14$/,
+            /^\s*AssertionError:\s*\#\s*(?:test\/node\/)?js_various_types_test.js\:22$/
     ]);
 
     diagramRenderingTest('JS', actualOutputPath, [

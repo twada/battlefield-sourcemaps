@@ -75,56 +75,67 @@ var browserifyScenario = {
 
 var gulpScenario = {
     gulp_espower: {
+        type: ['js'],
         srcFile: './test/web/*_test.js',
         html: './test/html/separated/test.html',
         plugins: [espower()]
     },
     gulp_concat_espower: {
+        type: ['js'],
         srcFile: './test/web/*_test.js',
         html: './test/html/concat/test.html',
         plugins: [concat('all_test.js'), espower()]
     },
     gulp_espower_concat: {
+        type: ['js'],
         srcFile: './test/web/*_test.js',
         html: './test/html/concat/test.html',
         plugins: [espower(), concat('all_test.js')]
     },
     gulp_coffee_espower: {
+        type: ['coffee'],
         srcFile: './test/web/*_test.coffee',
         html: './test/html/separated_coffee/test.html',
         plugins: [coffee(), espower()]
     },
     gulp_coffee_espower_custom: {
+        type: ['coffee'],
         srcFile: './test/web/*_test.coffee',
         html: './test/html/separated_coffee/test.html',
         plugins: [coffee({sourceRoot: path.join(__dirname, 'test/web/')}), espower()]
     },
     gulp_coffee_concat_espower: {
+        type: ['coffee'],
         srcFile: './test/web/*_test.coffee',
         html: './test/html/concat/test.html',
         plugins: [coffee(), concat('all_test.js'), espower()]
     },
     gulp_coffee_espower_concat: {
+        type: ['coffee'],
         srcFile: './test/web/*_test.coffee',
         html: './test/html/concat/test.html',
         plugins: [coffee(), espower(), concat('all_test.js')]
     },
     gulp_tsc_espower: {
+        type: ['ts'],
         srcFile: './test/web/*_test.ts',
         html: './test/html/separated_ts/test.html',
         plugins: [typescript({sourcemap: true}), espower()]
     },
     gulp_tsc_espower_concat: {
+        type: ['ts'],
         srcFile: './test/web/*_test.ts',
         html: './test/html/concat/test.html',
         plugins: [typescript({sourcemap: true}), espower(), concat('all_test.js')]
     },
     gulp_tsc_out_espower: {
+        type: ['ts'],
         srcFile: './test/web/*_test.ts',
         html: './test/html/concat/test.html',
         plugins: [typescript({sourcemap: true, out: path.join(__dirname, 'build/gulp/gulp_tsc_out_espower/') + 'all_test.js'}), espower()]
     },
     gulp_type_espower: {
+        type: ['ts'],
         srcFile: './test/web/*_test.ts',
         html: './test/html/separated_ts/test.html',
         plugins: [
@@ -135,6 +146,7 @@ var gulpScenario = {
         ]
     },
     gulp_type_espower_concat: {
+        type: ['ts'],
         srcFile: './test/web/*_test.ts',
         html: './test/html/concat/test.html',
         plugins: [
@@ -146,6 +158,7 @@ var gulpScenario = {
         ]
     },
     gulp_type_concat_espower: {
+        type: ['ts'],
         srcFile: './test/web/*_test.ts',
         html: './test/html/concat/test.html',
         plugins: [
@@ -162,7 +175,7 @@ Object.keys(gulpScenario).forEach(function (scenarioName) {
     var scenario = gulpScenario[scenarioName];
     var destDir = './build/gulp/' + scenarioName;
     gulp.task('clean:' + scenarioName, function (done) {
-        del([destDir], done);
+        del(['actual.txt', destDir], done);
     });
     gulp.task('setup:' + scenarioName, ['clean:' + scenarioName], function () {
         return gulp.src(scenario.html)
@@ -210,7 +223,7 @@ Object.keys(gulpScenario).forEach(function (scenarioName) {
             .src(files, {read: false})
             .pipe(mocha({
                 ui: 'bdd',
-                reporter: 'dot'
+                reporter: 'spec'
             }))
             .on('error', gutil.log);
     });
@@ -266,7 +279,7 @@ Object.keys(browserifyScenario).forEach(function (scenarioName) {
             .src(files, {read: false})
             .pipe(mocha({
                 ui: 'bdd',
-                reporter: 'dot'
+                reporter: 'spec'
             }))
             .on('error', gutil.log);
     });
