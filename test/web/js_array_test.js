@@ -1,3 +1,5 @@
+// var assert = require('power-assert');
+
 describe('配列のテスト', function () {
     beforeEach(function () {
         this.ary = [1,2,3];

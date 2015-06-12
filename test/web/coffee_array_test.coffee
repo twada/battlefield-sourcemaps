@@ -1,17 +1,22 @@
-describe "Coffee Array#indexOf()", ->
+# assert = require 'power-assert'
+
+describe "Coffee", ->
   beforeEach ->
     @ary = [
-      1
-      2
-      3
+      5
+      6
+      7
+      8
+      9
+      10
     ]
 
-  it "should return index when the value is present", ->
-    who = "ariya"
-    two = 2
-    assert @ary.indexOf(who) is two
+  it "Array#indexOf", ->
+    nine = 9
+    seven = 7
+    assert.ok @ary.indexOf(nine) is seven
 
-  it "should return -1 when the value is not present", ->
-    minusOne = -1
-    two = 2
-    assert.ok @ary.indexOf(two) is minusOne, "THIS IS\n AN ASSERTION\n MESSAGE"
+  it "Array#concat", ->
+    another = ['foo', 'bar']
+    expected = [5, 6, 7, 8, 9]
+    assert.deepEqual @ary.concat(another), expected

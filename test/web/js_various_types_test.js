@@ -1,3 +1,5 @@
+// var assert = require('power-assert');
+
 describe('いろいろな型を試す', function(){
     function Person(name, age) {
         this.name = name;
