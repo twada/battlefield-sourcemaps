@@ -14,6 +14,7 @@
   },
   "scripts": {
     "mocha": "mocha --require intelli-espower-loader test/node/*.js",
+    "coffee": "mocha --require espower-coffee/guess test/node/*.coffee",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "license": {
@@ -32,6 +33,7 @@
     "espower-source": "file:../../power-assert-js/espower-source",
     "espower-loader": "file:../../power-assert-js/espower-loader",
     "intelli-espower-loader": "file:../../power-assert-js/intelli-espower-loader",
+    "espower-coffee": "file:../../power-assert-js/espower-coffee",
     "espowerify": "file:../../power-assert-js/espowerify",
     "glob": "^5.0.9",
     "grunt": "^0.4.5",
