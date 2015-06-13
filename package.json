@@ -13,9 +13,8 @@
     "url": "http://github.com/twada"
   },
   "scripts": {
-    "mocha": "mocha --require intelli-espower-loader test/node/*.js",
     "coffee": "mocha --require espower-coffee/guess test/node/*.coffee",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha --require intelli-espower-loader test/node/*.js"
   },
   "license": {
     "type": "MIT",
@@ -23,14 +22,14 @@
   },
   "devDependencies": {
     "array-find": "^1.0.0",
-    "babel-plugin-espower": "file:../../power-assert-js/babel-plugin-espower",
+    "babel-plugin-espower": "^1.0.0",
     "babelify": "^6.1.2",
     "browserify": "^10.2.1",
     "coffeeify": "^1.1.0",
     "del": "^1.2.0",
     "es6ify": "^1.6.0",
-    "espower": "file:../../power-assert-js/espower",
-    "espower-source": "file:../../power-assert-js/espower-source",
+    "espower": "^1.0.6",
+    "espower-source": "git://github.com/power-assert-js/espower-source.git#source-root",
     "espower-loader": "file:../../power-assert-js/espower-loader",
     "intelli-espower-loader": "file:../../power-assert-js/intelli-espower-loader",
     "espower-coffee": "file:../../power-assert-js/espower-coffee",
