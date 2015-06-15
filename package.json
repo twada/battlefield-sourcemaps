@@ -1,24 +1,11 @@
 {
   "name": "battlefield-sourcemaps",
-  "private": true,
-  "version": "0.0.0",
   "description": "Fighting with sourcemaps",
-  "keywords": [
-    "power-assert",
-    "source-map"
-  ],
+  "version": "0.0.0",
   "author": {
     "name": "Takuto Wada",
     "email": "takuto.wada@gmail.com",
     "url": "http://github.com/twada"
-  },
-  "scripts": {
-    "coffee": "mocha --require espower-coffee/guess test/node/*.coffee",
-    "test": "mocha --require intelli-espower-loader test/node/*.js"
-  },
-  "license": {
-    "type": "MIT",
-    "url": "http://twada.mit-license.org/2014-2015"
   },
   "devDependencies": {
     "array-find": "^1.0.0",
@@ -29,11 +16,11 @@
     "del": "^1.2.0",
     "es6ify": "^1.6.0",
     "espower": "^1.0.6",
-    "espower-source": "git://github.com/power-assert-js/espower-source.git#source-root",
-    "espower-loader": "file:../../power-assert-js/espower-loader",
-    "intelli-espower-loader": "file:../../power-assert-js/intelli-espower-loader",
+    "espower-cli": "file:../../power-assert-js/espower-cli",
     "espower-coffee": "file:../../power-assert-js/espower-coffee",
-    "espowerify": "file:../../power-assert-js/espowerify",
+    "espower-loader": "git://github.com/power-assert-js/espower-loader.git#source-root",
+    "espower-source": "git://github.com/power-assert-js/espower-source.git#source-root",
+    "espowerify": "git://github.com/power-assert-js/espowerify#source-root",
     "glob": "^5.0.9",
     "grunt": "^0.4.5",
     "grunt-contrib-clean": "^0.6.0",
@@ -58,6 +45,7 @@
     "gulp-utf8ize-sourcemaps": "^0.1.0",
     "gulp-util": "^3.0.4",
     "gulp-webserver": "^0.9.1",
+    "intelli-espower-loader": "file:../../power-assert-js/intelli-espower-loader",
     "lstream": "0.0.4",
     "mocha": "^2.2.5",
     "mold-source-map": "^0.4.0",
@@ -66,5 +54,18 @@
     "tsify": "^0.11.0",
     "vinyl-source-stream": "^1.1.0",
     "xtend": "^4.0.0"
+  },
+  "keywords": [
+    "power-assert",
+    "source-map"
+  ],
+  "license": {
+    "type": "MIT",
+    "url": "http://twada.mit-license.org/2014-2015"
+  },
+  "private": true,
+  "scripts": {
+    "coffee": "mocha --require espower-coffee/guess test/node/*.coffee",
+    "test": "mocha --require intelli-espower-loader test/node/*.js"
   }
 }
