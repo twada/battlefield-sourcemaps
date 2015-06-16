@@ -59,10 +59,7 @@
     "power-assert",
     "source-map"
   ],
-  "license": {
-    "type": "MIT",
-    "url": "http://twada.mit-license.org/2014-2015"
-  },
+  "license": "MIT",
   "private": true,
   "scripts": {
     "coffee": "mocha --require espower-coffee/guess test/node/*.coffee",
