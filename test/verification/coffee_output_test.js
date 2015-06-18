@@ -6,9 +6,9 @@ var assertionLineNumberTest = require('./line-number');
 describe('CoffeeScript power-assert output verification', function () {
 
     assertionLineNumberTest('Coffee', actualOutputPath, [
-            /^\s*AssertionError:\s*\#\s*(?:test\/node\/)?coffee_array_test.coffee\:17$/,
-            /^\s*AssertionError:\s*\#\s*(?:test\/node\/)?coffee_array_test.coffee\:22$/,
-            /^\s*AssertionError:\s*\#\s*(?:test\/node\/)?coffee_various_types_test.coffee\:32$/
+            /^\s*AssertionError:\s*\#\s*(?:test\/(?:node|web)\/)?coffee_array_test.coffee\:17$/,
+            /^\s*AssertionError:\s*\#\s*(?:test\/(?:node|web)\/)?coffee_array_test.coffee\:22$/,
+            /^\s*AssertionError:\s*\#\s*(?:test\/(?:node|web)\/)?coffee_various_types_test.coffee\:32$/
     ]);
 
     diagramRenderingTest('Coffee', actualOutputPath, [

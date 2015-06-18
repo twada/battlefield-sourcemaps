@@ -6,9 +6,9 @@ var assertionLineNumberTest = require('./line-number');
 describe('TypeScript power-assert output verification', function () {
 
     assertionLineNumberTest('TypeScript', actualOutputPath, [
-            /^\s*AssertionError:\s*\#\s*(?:test\/node\/)?typescript_array_test.ts\:12$/,
-            /^\s*AssertionError:\s*\#\s*(?:test\/node\/)?typescript_array_test.ts\:17$/,
-            /^\s*AssertionError:\s*\#\s*(?:test\/node\/)?typescript_various_types_test.ts\:23$/
+            /^\s*AssertionError:\s*\#\s*(?:test\/(?:node|web)\/)?typescript_array_test.ts\:12$/,
+            /^\s*AssertionError:\s*\#\s*(?:test\/(?:node|web)\/)?typescript_array_test.ts\:17$/,
+            /^\s*AssertionError:\s*\#\s*(?:test\/(?:node|web)\/)?typescript_various_types_test.ts\:23$/
     ]);
 
     diagramRenderingTest('TypeScript', actualOutputPath, [
