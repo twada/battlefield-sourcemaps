@@ -25,14 +25,17 @@ STATUS
 
 [SourceMap transform chain by twada · Pull Request #4 · twada/espowerify](https://github.com/twada/espowerify/pull/4)
 
-| language          | 1st transform | 2nd transform | output | Chrome | Firefox |
-|:------------------|:--------------|:--------------|:-------|:-------|:--------|
-| JavaScript        | espowerify    |               | OK     | OK     | OK      |
-| CoffeeScript      | coffeeify     | espowerify    | OK     | OK     | OK      |
-| js & coffee mixed | coffeeify     | espowerify    | OK     | OK     | OK      |
-| ES6               | es6ify        | espowerify    | OK     | OK     | OK      |
-| ES6               | babelify      | espowerify    | OK     | OK     | OK      |
-| TypeScript        | tsify         | espowerify    | OK     | OK     | OK      |
+| language          | 1st transform | 2nd transform | output | Chrome | Firefox | note |
+|:------------------|:--------------|:--------------|:-------|:-------|:--------|:-----|
+| JavaScript        | espowerify    |               | OK     |        |         |      |
+| CoffeeScript      | coffeeify     | espowerify    | OK     |        |         |      |
+| js & coffee mixed | coffeeify     | espowerify    | OK     |        |         |      |
+| ES6               | es6ify     | espowerify  | NG  |  |  | please use babelify and babel-plugin-espower instead |
+| ES6               | babelify   | espowerify  | NG  |  |  | please use babel-plugin-espower instead |
+| ES6     | babelify (with babel-plugin-espower) |  | OK     |        |         |      |
+| TypeScript(ts)    | tsify         | espowerify    | OK     |        |         |      |
+| js & ts mixed     | tsify         | espowerify    | OK     |        |         |      |
+| js & ts & coffee  | tsify, coffeeify | espowerify | OK     |        |         |      |
 
 [espowerify 0.9.0 is now landed!](https://github.com/twada/espowerify/releases/tag/v0.9.0)
 
