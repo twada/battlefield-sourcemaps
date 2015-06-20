@@ -1,5 +1,6 @@
 var gulp = require('gulp');
 var gutil = require('gulp-util');
+var runSequence = require('run-sequence');
 var taskListing = require('gulp-task-listing');
 var webserver = require('gulp-webserver');
 var mocha = require('gulp-mocha');
@@ -22,26 +23,31 @@ var babelify = require("babelify");
 
 var browserifyScenario = {
     browserify_espowerify: {
+        works: true,
         type: ['js'],
         srcFile: './test/node/*_test.js',
         transform: ['espowerify']
     },
     browserify_coffeeify_espowerify: {
+        works: true,
         type: ['coffee'],
         srcFile: './test/node/*_test.coffee',
         transform: ['coffeeify', 'espowerify']
     },
     browserify_mixture_coffeeify_espowerify: {
+        works: true,
         type: ['js', 'coffee'],
         srcFile: './test/node/*_test.{js,coffee}',
         transform: ['coffeeify', 'espowerify']
     },
     browserify_es6ify_espowerify: {
+        works: false,
         type: ['es6'],
         srcFile: './test/es6/*_test.js',
         transform: ['es6ify', 'espowerify']
     },
     browserify_babelify_babel_plugin_espower: {
+        works: true,
         type: ['es6'],
         srcFile: './test/es6/*_test.js',
         transform: [babelify.configure({
@@ -49,23 +55,27 @@ var browserifyScenario = {
         })]
     },
     browserify_babelify_espowerify: {
+        works: false,
         type: ['es6'],
         srcFile: './test/es6/*_test.js',
         transform: ['babelify', 'espowerify']
     },
     browserify_tsify_espowerify: {
+        works: true,
         type: ['ts'],
         srcFile: './test/node/*_test.ts',
         plugins: ['tsify'],
         transform: ['espowerify']
     },
     browserify_mixture_tsify_espowerify: {
+        works: true,
         type: ['js', 'ts'],
         srcFile: './test/node/*_test.{js,ts}',
         plugins: ['tsify'],
         transform: ['espowerify']
     },
     browserify_mixture_tsify_coffeeify_espowerify: {
+        works: true,
         type: ['js', 'ts', 'coffee'],
         srcFile: './test/node/*_test.{js,ts,coffee}',
         plugins: ['tsify'],
@@ -269,6 +279,15 @@ Object.keys(browserifyScenario).forEach(function (scenarioName) {
 
 gulp.task('clean', function (done) {
     del(['./build'], done);
+});
+
+gulp.task('verify_all_browserify', function (done) {
+    var tasks = Object.keys(browserifyScenario).filter(function (name) {
+        return browserifyScenario[name].works;
+    }).map(function (name){
+        return 'verify:' + name;
+    });
+    runSequence.apply(null, tasks.concat([done]));
 });
 
 gulp.task('build_all_browserify', Object.keys(browserifyScenario).map(function (name){ return 'build:' + name; }));
