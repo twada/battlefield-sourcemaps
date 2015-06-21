@@ -63,7 +63,8 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "coffee": "mocha --require espower-coffee/guess test/node/*.coffee",
-    "test": "mocha --require intelli-espower-loader test/node/*.js"
+    "espower-coffee": "mocha --require espower-coffee/guess test/node/*.coffee",
+    "espower-loader": "mocha --require intelli-espower-loader test/node/*.js",
+    "test": "gulp test"
   }
 }

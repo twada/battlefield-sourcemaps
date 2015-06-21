@@ -312,7 +312,7 @@ gulp.task('verify_all_gulp', function (done) {
     runSequence.apply(null, tasks.concat([done]));
 });
 
-gulp.task('verify', function (done) {
+gulp.task('test', function (done) {
     runSequence('verify_all_browserify', 'verify_all_gulp', done);
 });
 
