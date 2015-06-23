@@ -3,6 +3,7 @@ var TaskDef = require('./lib/task-def');
 
 var gruntScenario = {
     grunt_espower: {
+        type: ['js'],
         espower: {
             files: [
                 {
@@ -15,9 +16,10 @@ var gruntScenario = {
             ]
         },
         html: './test/grunt_html/separated/test.html',
-        tasks: ['clean','copy','espower','mocha']
+        tasks: ['clean','copy','espower','mocha','mochaTest']
     },
     grunt_concat_espower: {
+        type: ['js'],
         concat: {
             src: './test/web/*_test.js',
             dest: '<%= paths.grunt_concat_espower.tmpDir %>/all_test.js'
@@ -34,9 +36,10 @@ var gruntScenario = {
             ]
         },
         html: './test/grunt_html/concat/test.html',
-        tasks: ['clean','copy','concat','espower','mocha']
+        tasks: ['clean','copy','concat','espower','mocha','mochaTest']
     },
     grunt_espower_concat: {
+        type: ['js'],
         espower: {
             files: [
                 {
@@ -53,9 +56,10 @@ var gruntScenario = {
             dest: '<%= paths.grunt_espower_concat.destDir %>/all_test.js'
         },
         html: './test/grunt_html/concat/test.html',
-        tasks: ['clean','copy','espower','concat','mocha']
+        tasks: ['clean','copy','espower','concat','mocha','mochaTest']
     },
     grunt_concatinline_espower: {
+        type: ['js'],
         concat: {
             options: {
                 sourceMap: true,
@@ -76,9 +80,10 @@ var gruntScenario = {
             ]
         },
         html: './test/grunt_html/concat/test.html',
-        tasks: ['clean','copy','concat','espower','mocha']
+        tasks: ['clean','copy','concat','espower','mocha','mochaTest']
     },
     grunt_coffee_espower: {
+        type: ['coffee'],
         coffee: {
             files: [
                 {
@@ -102,9 +107,10 @@ var gruntScenario = {
             ]
         },
         html: './test/grunt_html/separated_coffee/test.html',
-        tasks: ['clean','copy','coffee','espower','mocha']
+        tasks: ['clean','copy','coffee','espower','mocha','mochaTest']
     },
     grunt_coffee_espower_concat: {
+        type: ['coffee'],
         coffee: {
             files: [
                 {
@@ -132,9 +138,10 @@ var gruntScenario = {
             dest: '<%= paths.grunt_coffee_espower_concat.destDir %>/all_test.js'
         },
         html: './test/grunt_html/concat/test.html',
-        tasks: ['clean','copy','coffee','espower','concat','mocha']
+        tasks: ['clean','copy','coffee','espower','concat','mocha','mochaTest']
     },
     grunt_coffee_concat_espower: {
+        type: ['coffee'],
         coffee: {
             files: [
                 {
@@ -162,9 +169,10 @@ var gruntScenario = {
             ]
         },
         html: './test/grunt_html/concat/test.html',
-        tasks: ['clean','copy','coffee','concat','espower','mocha']
+        tasks: ['clean','copy','coffee','concat','espower','mocha','mochaTest']
     },
     grunt_coffee_concatinline_espower: {
+        type: ['coffee'],
         coffee: {
             files: [
                 {
@@ -196,9 +204,10 @@ var gruntScenario = {
             ]
         },
         html: './test/grunt_html/concat/test.html',
-        tasks: ['clean','copy','coffee','concat','espower','mocha']
+        tasks: ['clean','copy','coffee','concat','espower','mocha','mochaTest']
     },
     grunt_ts_espower: {
+        type: ['ts'],
         ts: {
             src: ['./test/web/*_test.ts'],
             outDir: '<%= paths.grunt_ts_espower.tmpDir %>/ts'
@@ -215,9 +224,10 @@ var gruntScenario = {
             ]
         },
         html: './test/grunt_html/separated_ts/test.html',
-        tasks: ['clean','copy','ts','espower','mocha']
+        tasks: ['clean','copy','ts','espower','mocha','mochaTest']
     },
     grunt_tsout_espower: {
+        type: ['ts'],
         ts: {
             src: ['./test/web/*_test.ts'],
             out: '<%= paths.grunt_tsout_espower.tmpDir %>/all_test.js'
@@ -234,9 +244,10 @@ var gruntScenario = {
             ]
         },
         html: './test/grunt_html/concat/test.html',
-        tasks: ['clean','copy','ts','espower','mocha']
+        tasks: ['clean','copy','ts','espower','mocha','mochaTest']
     },
     grunt_ts_espower_concat: {
+        type: ['ts'],
         ts: {
             src: ['./test/web/*_test.ts'],
             outDir: '<%= paths.grunt_ts_espower_concat.tmpDir %>/ts'
@@ -257,9 +268,10 @@ var gruntScenario = {
             dest: '<%= paths.grunt_ts_espower_concat.destDir %>/all_test.js'
         },
         html: './test/grunt_html/concat/test.html',
-        tasks: ['clean','copy','ts','espower','concat','mocha']
+        tasks: ['clean','copy','ts','espower','concat','mocha','mochaTest']
     },
     grunt_ts_concat_espower: {
+        type: ['ts'],
         ts: {
             src: ['./test/web/*_test.ts'],
             outDir: '<%= paths.grunt_ts_concat_espower.tmpDir %>/ts'
@@ -280,9 +292,10 @@ var gruntScenario = {
             ]
         },
         html: './test/grunt_html/concat/test.html',
-        tasks: ['clean','copy','ts','concat','espower','mocha']
+        tasks: ['clean','copy','ts','concat','espower','mocha','mochaTest']
     },
     grunt_ts_concatinline_espower: {
+        type: ['ts'],
         ts: {
             src: ['./test/web/*_test.ts'],
             outDir: '<%= paths.grunt_ts_concatinline_espower.tmpDir %>/ts'
@@ -307,7 +320,7 @@ var gruntScenario = {
             ]
         },
         html: './test/grunt_html/concat/test.html',
-        tasks: ['clean','copy','ts','concat','espower','mocha']
+        tasks: ['clean','copy','ts','concat','espower','mocha','mochaTest']
     }
 };
 
@@ -316,6 +329,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-mocha');
+    grunt.loadNpmTasks('grunt-mocha-test');
     grunt.loadNpmTasks('grunt-espower');
     grunt.loadNpmTasks('grunt-contrib-coffee');
     grunt.loadNpmTasks('grunt-ts');
@@ -356,6 +370,14 @@ module.exports = function(grunt) {
                 logErrors: false,
                 reporter: './lib/battle-field-reporter',
                 run: true
+            }
+        },
+        mochaTest: {
+            options: {
+                reporter: 'spec',
+                // captureFile: 'results.txt', // Optionally capture the reporter output to a file
+                quiet: false, // Optionally suppress output to standard out (defaults to false)
+                clearRequireCache: false // Optionally clear the require cache before running tests (defaults to false)
             }
         }
     };

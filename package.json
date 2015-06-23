@@ -29,6 +29,7 @@
     "grunt-contrib-copy": "^0.8.0",
     "grunt-espower": "file:../../power-assert-js/grunt-espower",
     "grunt-mocha": "^0.4.12",
+    "grunt-mocha-test": "^0.12.7",
     "grunt-ts": "^4.2.0-beta",
     "gulp": "^3.9.0",
     "gulp-coffee": "^2.3.1",
