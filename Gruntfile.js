@@ -14,7 +14,7 @@ var gruntScenario = {
                 }
             ]
         },
-        html: './test/html/separated/test.html',
+        html: './test/grunt_html/separated/test.html',
         tasks: ['clean','copy','espower','mocha']
     },
     grunt_concat_espower: {
@@ -33,7 +33,7 @@ var gruntScenario = {
                 }
             ]
         },
-        html: './test/html/concat/test.html',
+        html: './test/grunt_html/concat/test.html',
         tasks: ['clean','copy','concat','espower','mocha']
     },
     grunt_espower_concat: {
@@ -52,7 +52,7 @@ var gruntScenario = {
             src: '<%= paths.grunt_espower_concat.tmpDir %>/*_test.js',
             dest: '<%= paths.grunt_espower_concat.destDir %>/all_test.js'
         },
-        html: './test/html/concat/test.html',
+        html: './test/grunt_html/concat/test.html',
         tasks: ['clean','copy','espower','concat','mocha']
     },
     grunt_concatinline_espower: {
@@ -75,7 +75,7 @@ var gruntScenario = {
                 }
             ]
         },
-        html: './test/html/concat/test.html',
+        html: './test/grunt_html/concat/test.html',
         tasks: ['clean','copy','concat','espower','mocha']
     },
     grunt_coffee_espower: {
@@ -101,7 +101,7 @@ var gruntScenario = {
                 }
             ]
         },
-        html: './test/html/separated_coffee/test.html',
+        html: './test/grunt_html/separated_coffee/test.html',
         tasks: ['clean','copy','coffee','espower','mocha']
     },
     grunt_coffee_espower_concat: {
@@ -131,7 +131,7 @@ var gruntScenario = {
             src: '<%= paths.grunt_coffee_espower_concat.tmpDir %>/powered/*_test.js',
             dest: '<%= paths.grunt_coffee_espower_concat.destDir %>/all_test.js'
         },
-        html: './test/html/concat/test.html',
+        html: './test/grunt_html/concat/test.html',
         tasks: ['clean','copy','coffee','espower','concat','mocha']
     },
     grunt_coffee_concat_espower: {
@@ -161,7 +161,7 @@ var gruntScenario = {
                 }
             ]
         },
-        html: './test/html/concat/test.html',
+        html: './test/grunt_html/concat/test.html',
         tasks: ['clean','copy','coffee','concat','espower','mocha']
     },
     grunt_coffee_concatinline_espower: {
@@ -195,7 +195,7 @@ var gruntScenario = {
                 }
             ]
         },
-        html: './test/html/concat/test.html',
+        html: './test/grunt_html/concat/test.html',
         tasks: ['clean','copy','coffee','concat','espower','mocha']
     },
     grunt_ts_espower: {
@@ -214,7 +214,7 @@ var gruntScenario = {
                 }
             ]
         },
-        html: './test/html/separated_ts/test.html',
+        html: './test/grunt_html/separated_ts/test.html',
         tasks: ['clean','copy','ts','espower','mocha']
     },
     grunt_tsout_espower: {
@@ -233,7 +233,7 @@ var gruntScenario = {
                 }
             ]
         },
-        html: './test/html/concat/test.html',
+        html: './test/grunt_html/concat/test.html',
         tasks: ['clean','copy','ts','espower','mocha']
     },
     grunt_ts_espower_concat: {
@@ -256,7 +256,7 @@ var gruntScenario = {
             src: '<%= paths.grunt_ts_espower_concat.tmpDir %>/powered/*_test.js',
             dest: '<%= paths.grunt_ts_espower_concat.destDir %>/all_test.js'
         },
-        html: './test/html/concat/test.html',
+        html: './test/grunt_html/concat/test.html',
         tasks: ['clean','copy','ts','espower','concat','mocha']
     },
     grunt_ts_concat_espower: {
@@ -279,7 +279,7 @@ var gruntScenario = {
                 }
             ]
         },
-        html: './test/html/concat/test.html',
+        html: './test/grunt_html/concat/test.html',
         tasks: ['clean','copy','ts','concat','espower','mocha']
     },
     grunt_ts_concatinline_espower: {
@@ -306,7 +306,7 @@ var gruntScenario = {
                 }
             ]
         },
-        html: './test/html/concat/test.html',
+        html: './test/grunt_html/concat/test.html',
         tasks: ['clean','copy','ts','concat','espower','mocha']
     }
 };
@@ -352,6 +352,9 @@ module.exports = function(grunt) {
         },
         mocha: {
             options: {
+                log: false,
+                logErrors: false,
+                reporter: './lib/battle-field-reporter',
                 run: true
             }
         }
