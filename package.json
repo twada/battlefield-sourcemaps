@@ -64,8 +64,9 @@
   "license": "MIT",
   "private": true,
   "scripts": {
+    "verify-grunt-output": "./vefiry_grunt_output.sh",
     "espower-coffee": "mocha --require espower-coffee/guess test/node/*.coffee",
     "espower-loader": "mocha --require intelli-espower-loader test/node/*.js",
-    "test": "gulp test"
+    "test": "npm run verify-grunt-output && gulp test"
   }
 }

@@ -341,6 +341,7 @@ module.exports = function(grunt) {
         paths: {},
         clean: {
             build: ['<%= buildDirRoot %>'],
+            output: ['./actual.txt'],
             tmp: ['<%= tmpDirRoot %>']
         },
         concat: {
@@ -403,9 +404,12 @@ module.exports = function(grunt) {
 
     Object.keys(gruntScenario).forEach(function (scenarioName) {
         var scenario = gruntScenario[scenarioName];
-        var taskNames = scenario.tasks.map(function (name) {
+        var taskNames = scenario.tasks.filter(function (taskName) {
+            return taskName !== 'mochaTest';
+        }).map(function (name) {
             return name + ':' + scenarioName;
         });
         grunt.registerTask(scenarioName, taskNames);
+        grunt.registerTask('verify_' + scenarioName, 'mochaTest:' + scenarioName);
     });
 };
