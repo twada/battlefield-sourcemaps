@@ -43,13 +43,13 @@ var browserifyScenario = {
     browserify_es6ify_espowerify: {
         works: false,
         type: ['es6'],
-        srcFile: './test/es6/*_test.js',
+        srcFile: './test/node/*_test.es6',
         transform: ['es6ify', 'espowerify']
     },
     browserify_babelify_babel_plugin_espower: {
         works: true,
         type: ['es6'],
-        srcFile: './test/es6/*_test.js',
+        srcFile: './test/node/*_test.es6',
         transform: [babelify.configure({
             plugins: ['babel-plugin-espower']
         })]
@@ -57,7 +57,7 @@ var browserifyScenario = {
     browserify_babelify_espowerify: {
         works: false,
         type: ['es6'],
-        srcFile: './test/es6/*_test.js',
+        srcFile: './test/node/*_test.es6',
         transform: ['babelify', 'espowerify']
     },
     browserify_tsify_espowerify: {
