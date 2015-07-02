@@ -20,6 +20,7 @@ var source = require('vinyl-source-stream');
 var browserify = require('browserify');
 var mold = require('mold-source-map');
 var babelify = require("babelify");
+var babel = require("gulp-babel");
 
 var browserifyScenario = {
     browserify_espowerify: {
@@ -132,6 +133,15 @@ var gulpScenario = {
         srcFile: './test/web/*_test.coffee',
         html: './test/html/concat/test.html',
         plugins: [coffee(), espower(), concat('all_test.js')]
+    },
+    gulp_babel_babel_plugin_espower: {
+        works: true,
+        type: ['es6'],
+        srcFile: './test/web/*_test.es6',
+        html: './test/html/separated_es6/test.html',
+        plugins: [babel({
+            plugins: ['babel-plugin-espower']
+        })]
     },
     gulp_tsc_espower: {
         works: false,
