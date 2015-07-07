@@ -58,7 +58,7 @@ STATUS
 | TypeScript   | gulp-type     | gulp-espower  |               | OK     | OK     | OK      |
 | TypeScript   | gulp-type     | gulp-concat   | gulp-espower  | OK     | OK     | OK      |
 | TypeScript   | gulp-type     | gulp-espower  | gulp-concat   | OK     | OK     | OK      |
-| ES6  | gulp-babel (with babel-plugin-espower) | |            | OK     |        |         |
+| ES6  | gulp-babel (with babel-plugin-espower) | |            | OK     | OK     | OK      |
 
 [gulp-espower 0.9.0 is now landed!](https://github.com/twada/gulp-espower/releases/tag/v0.9.0)
 
