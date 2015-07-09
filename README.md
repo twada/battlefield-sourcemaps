@@ -103,7 +103,7 @@ RELATED LINKS
 
 ### browserify
 
-- [browserify v2 adds source maps](http://thlorenz.com/blog/browserify-sourcemaps)
+- [browserify v2 adds source maps](http://thlorenz.com/blog/browserify-v2-adds-source-maps/)
 - [jnordberg/coffeeify](https://github.com/jnordberg/coffeeify)
 - [thlorenz/es6ify](https://github.com/thlorenz/es6ify)
 - [babel/babelify](https://github.com/babel/babelify)
