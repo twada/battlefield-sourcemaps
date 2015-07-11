@@ -65,6 +65,7 @@
   "license": "MIT",
   "private": true,
   "scripts": {
+    "bower": "bower install --config.interactive=false",
     "verify-grunt-output": "./vefiry_grunt_output.sh",
     "espower-coffee": "mocha --require espower-coffee/guess test/node/*.coffee",
     "intelli-espower-loader": "mocha --require intelli-espower-loader test/node/*.js",
