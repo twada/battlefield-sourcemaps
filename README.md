@@ -3,6 +3,8 @@ battlefield-sourcemaps
 
 Fighting with multi-stage sourcemaps with power-assert.
 
+[![Build Status][travis-image]][travis-url]
+
 
 HOW TO FIGHT
 --------------------
@@ -129,3 +131,7 @@ RELATED LINKS
 - [gruntjs/grunt-contrib-concat](https://github.com/gruntjs/grunt-contrib-concat)
 - [gruntjs/grunt-contrib-coffee](https://github.com/gruntjs/grunt-contrib-coffee)
 - [grunt-ts/grunt-ts](https://github.com/grunt-ts/grunt-ts)
+
+
+[travis-url]: http://travis-ci.org/twada/battlefield-sourcemaps
+[travis-image]: https://secure.travis-ci.org/twada/battlefield-sourcemaps.svg?branch=master
