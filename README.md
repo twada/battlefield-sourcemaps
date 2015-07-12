@@ -29,11 +29,11 @@ STATUS
 
 | language          | 1st transform | 2nd transform | output | Chrome | Firefox | note |
 |:------------------|:--------------|:--------------|:-------|:-------|:--------|:-----|
-| JavaScript        | espowerify    |               | OK     |        |         |      |
-| CoffeeScript      | coffeeify     | espowerify    | OK     |        |         |      |
+| js                | espowerify    |               | OK     |        |         |      |
+| coffee            | coffeeify     | espowerify    | OK     |        |         |      |
 | js & coffee mixed | coffeeify     | espowerify    | OK     |        |         |      |
-| ES6               | es6ify     | espowerify  | NG  |  |  | please use babelify and babel-plugin-espower instead |
-| ES6               | babelify   | espowerify  | NG  |  |  | please use babel-plugin-espower instead |
+| ES6               | es6ify        | espowerify    | NG     |        |         | please use babelify and babel-plugin-espower instead |
+| ES6               | babelify      | espowerify    | NG     |        |         | please use with babel-plugin-espower |
 | ES6     | babelify (with babel-plugin-espower) |  | OK     |        |         |      |
 | TypeScript(ts)    | tsify         | espowerify    | OK     |        |         |      |
 | js & ts mixed     | tsify         | espowerify    | OK     |        |         |      |
