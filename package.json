@@ -19,7 +19,7 @@
     "espower-cli": "git://github.com/power-assert-js/espower-cli#source-root",
     "espower-coffee": "git://github.com/power-assert-js/espower-coffee.git#source-root",
     "espower-loader": "git://github.com/power-assert-js/espower-loader.git#source-root",
-    "espower-source": "git://github.com/power-assert-js/espower-source.git#source-root",
+    "espower-source": "git://github.com/power-assert-js/espower-source.git",
     "espowerify": "git://github.com/power-assert-js/espowerify#source-root",
     "glob": "^5.0.14",
     "grunt": "^0.4.5",
