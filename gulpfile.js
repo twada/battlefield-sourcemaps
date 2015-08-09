@@ -106,6 +106,27 @@ var gulpScenario = {
         html: './test/html/concat/test.html',
         plugins: [espower(), concat('all_test.js')]
     },
+    gulp_babel_babel_plugin_espower: {
+        works: true,
+        type: ['es6'],
+        srcFile: './test/web/*_test.es6',
+        html: './test/html/separated_es6/test.html',
+        plugins: [babel({
+            plugins: ['babel-plugin-espower']
+        })]
+    },
+    gulp_babel_babel_plugin_espower_concat: {
+        works: true,
+        type: ['es6'],
+        srcFile: './test/web/*_test.es6',
+        html: './test/html/concat/test.html',
+        plugins: [
+            babel({
+                plugins: ['babel-plugin-espower']
+            }),
+            concat('all_test.js')
+        ]
+    },
     gulp_coffee_espower: {
         works: true,
         type: ['coffee'],
@@ -133,15 +154,6 @@ var gulpScenario = {
         srcFile: './test/web/*_test.coffee',
         html: './test/html/concat/test.html',
         plugins: [coffee(), espower(), concat('all_test.js')]
-    },
-    gulp_babel_babel_plugin_espower: {
-        works: true,
-        type: ['es6'],
-        srcFile: './test/web/*_test.es6',
-        html: './test/html/separated_es6/test.html',
-        plugins: [babel({
-            plugins: ['babel-plugin-espower']
-        })]
     },
     gulp_tsc_espower: {
         works: false,
