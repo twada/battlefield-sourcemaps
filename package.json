@@ -62,11 +62,11 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "gulp": "gulp",
     "bower": "bower install --config.interactive=false",
-    "verify-grunt-output": "./vefiry_grunt_output.sh",
     "espower-coffee": "mocha --require espower-coffee/guess test/node/*.coffee",
+    "gulp": "gulp",
     "intelli-espower-loader": "mocha --require intelli-espower-loader test/node/*.js",
-    "test": "npm run verify-grunt-output && gulp test"
+    "test": "npm run verify-grunt-output && gulp test",
+    "verify-grunt-output": "./vefiry_grunt_output.sh"
   }
 }
