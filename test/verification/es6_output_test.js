@@ -6,9 +6,9 @@ var assertionLineNumberTest = require('./line-number');
 describe('ES6 power-assert output verification', function () {
 
     assertionLineNumberTest('ES6', actualOutputPath, [
-            /^\s*AssertionError:\s*\#\s*(?:test\/(?:node|web)\/)?arrowfunction_and_spread_test.es6\:7$/,
-            /^\s*AssertionError:\s*\#\s*(?:test\/(?:node|web)\/)?destructuring_and_templateliteral_test.es6\:7$/,
-            /^\s*AssertionError:\s*\#\s*(?:test\/(?:node|web)\/)?enhanced_object_literal_test.es6\:7$/
+            /^\s*\#\s*(?:test\/(?:node|web)\/)?arrowfunction_and_spread_test.es6\:7$/,
+            /^\s*\#\s*(?:test\/(?:node|web)\/)?destructuring_and_templateliteral_test.es6\:7$/,
+            /^\s*\#\s*(?:test\/(?:node|web)\/)?enhanced_object_literal_test.es6\:7$/
     ]);
 
     diagramRenderingTest('ES6', actualOutputPath, [
