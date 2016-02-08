@@ -21,6 +21,7 @@ var browserify = require('browserify');
 var mold = require('mold-source-map');
 var babelify = require("babelify");
 var babel = require("gulp-babel");
+require('source-map-support').install();
 
 var browserifyScenario = {
     browserify_espowerify: {
@@ -217,8 +218,8 @@ var gulpScenario = {
 };
 
 function buildTasks (scenarioName, scenario, destDir) {
-    gulp.task('clean:' + scenarioName, function (done) {
-        del(['actual.txt', destDir], done);
+    gulp.task('clean:' + scenarioName, function () {
+        del.sync(['actual.txt', destDir]);
     });
     gulp.task('test:' + scenarioName, ['build:' + scenarioName], function () {
         return gulp
@@ -295,6 +296,7 @@ Object.keys(browserifyScenario).forEach(function (scenarioName) {
     gulp.task('build:' + scenarioName, ['setup:' + scenarioName], function() {
         var files = glob.sync(scenario.srcFile);
         var b = browserify({entries: files, debug: true});
+        b.plugin('licensify');
         if (scenario.plugins) {
             scenario.plugins.forEach(function (p) {
                 b.plugin(p);
@@ -312,8 +314,8 @@ Object.keys(browserifyScenario).forEach(function (scenarioName) {
     buildTasks(scenarioName, scenario, destDir);
 });
 
-gulp.task('clean', function (done) {
-    del(['./build'], done);
+gulp.task('clean', function () {
+    del.sync(['./build']);
 });
 
 gulp.task('verify_all_browserify', function (done) {
@@ -338,9 +340,13 @@ gulp.task('test', function (done) {
     runSequence('verify_all_browserify', 'verify_all_gulp', done);
 });
 
-gulp.task('build_all_browserify', Object.keys(browserifyScenario).map(function (name){ return 'build:' + name; }));
+gulp.task('build_all_browserify', Object.keys(browserifyScenario).filter(function (name) {
+    return browserifyScenario[name].works;
+}).map(function (name){ return 'build:' + name; }));
 
-gulp.task('build_all_gulp', Object.keys(gulpScenario).map(function (name){ return 'build:' + name; }));
+gulp.task('build_all_gulp', Object.keys(gulpScenario).filter(function (name) {
+    return gulpScenario[name].works;
+}).map(function (name){ return 'build:' + name; }));
 
 gulp.task('serve', function() {
     gulp.src(__dirname)
