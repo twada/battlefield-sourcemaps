@@ -15,6 +15,7 @@
     "coffeeify": "^2.0.1",
     "del": "^2.2.0",
     "es6ify": "^1.6.0",
+    "espower": "github:power-assert-js/espower#embedded-recorder",
     "espower-coffee": "1.0.1",
     "espower-loader": "1.0.0",
     "espowerify": "1.0.0",
