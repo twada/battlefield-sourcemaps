@@ -17,6 +17,7 @@
     "del": "^2.2.0",
     "es6ify": "^1.6.0",
     "espower": "github:power-assert-js/espower#embedded-recorder",
+    "espower-cli": "^1.0.0",
     "espower-coffee": "1.0.1",
     "espower-loader": "1.0.0",
     "espowerify": "1.0.0",
@@ -69,6 +70,7 @@
     "bower": "bower install --config.interactive=false",
     "espower-coffee": "mocha --require espower-coffee/guess test/node/*.coffee",
     "gulp": "gulp",
+    "espower": "espower",
     "intelli-espower-loader": "mocha --require intelli-espower-loader test/node/*.js",
     "test": "npm run verify-grunt-output && gulp test",
     "verify-grunt-output": "./vefiry_grunt_output.sh"
