@@ -39,12 +39,12 @@ describe('ES6 power-assert output verification', function () {
         '  +alice and bob',
 
         // ES6 demo 3 Enhanced Object Literals:
-        '  assert.deepEqual({name,[`${ name }\'s greet`]: `Hello, I\'m ${ name }`}, null)',
-        '                   |      |   |                 |              |              ',
-        '                   |      |   |                 |              "bobby"        ',
-        '                   |      |   "bobby"           "Hello, I\'m bobby"            ',
-        '                   |      "bobby\'s greet"                                     ',
-        '                   Object{name:"bobby","bobby\'s greet":"Hello, I\'m bobby"}    '
+        '  assert.deepEqual({ name, [`${ name }\'s greet`]: `Hello, I\'m ${ name }` }, null)',
+        '                   |        |   |                 |              |               ',
+        '                   |        |   |                 |              "bobby"         ',
+        '                   |        |   "bobby"           "Hello, I\'m bobby"             ',
+        '                   |        "bobby\'s greet"                                      ',
+        '                   Object{name:"bobby","bobby\'s greet":"Hello, I\'m bobby"}       '
     ]);
 
 });
