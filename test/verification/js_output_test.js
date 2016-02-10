@@ -6,9 +6,9 @@ var assertionLineNumberTest = require('./line-number');
 describe('JS power-assert output verification', function () {
 
     assertionLineNumberTest('JS', actualOutputPath, [
-            /^\s*\#\s*(?:test\/(?:node|web)\/)?js_array_test.js\:10$/,
-            /^\s*メッセージ\s*\#\s*(?:test\/(?:node|web)\/)?js_array_test.js\:14$/,
-            /^\s*\#\s*(?:test\/(?:node|web)\/)?js_various_types_test.js\:22$/
+            /\s*\#\s*(?:test\/(?:node|web)\/)?js_array_test.js\:10$/,
+            /\s*メッセージ\s*\#\s*(?:test\/(?:node|web)\/)?js_array_test.js\:14$/,
+            /\s*\#\s*(?:test\/(?:node|web)\/)?js_various_types_test.js\:22$/
     ]);
 
     diagramRenderingTest('JS', actualOutputPath, [

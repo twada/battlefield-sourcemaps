@@ -74,6 +74,6 @@
     "espower": "espower",
     "intelli-espower-loader": "mocha --require intelli-espower-loader test/node/*.js",
     "test": "npm run verify-grunt-output && gulp test",
-    "verify-grunt-output": "./vefiry_grunt_output.sh"
+    "verify-grunt-output": "./verify_grunt_output.sh"
   }
 }
