@@ -30,11 +30,11 @@ STATUS
 | language          | 1st transform | 2nd transform | output | Chrome | Firefox | note |
 |:------------------|:--------------|:--------------|:-------|:-------|:--------|:-----|
 | js                | espowerify    |               | OK     |        |         |      |
-| coffee            | coffeeify     | espowerify    | OK     |        |         |      |
-| js & coffee mixed | coffeeify     | espowerify    | OK     |        |         |      |
 | ES6               | es6ify        | espowerify    | NG     |        |         | please use babelify and babel-plugin-espower instead |
 | ES6               | babelify      | espowerify    | NG     |        |         | please use with babel-plugin-espower |
 | ES6     | babelify (with babel-plugin-espower) |  | OK     |        |         |      |
+| coffee            | coffeeify     | espowerify    | OK     |        |         |      |
+| js & coffee mixed | coffeeify     | espowerify    | OK     |        |         |      |
 | TypeScript(ts)    | tsify         | espowerify    | OK     |        |         |      |
 | js & ts mixed     | tsify         | espowerify    | OK     |        |         |      |
 | js & ts & coffee  | tsify, coffeeify | espowerify | OK     |        |         |      |
@@ -51,16 +51,18 @@ STATUS
 | JavaScript   | gulp-espower  |               |               | OK     | OK     | OK      |
 | JavaScript   | gulp-concat   | gulp-espower  |               | OK     | OK     | OK      |
 | JavaScript   | gulp-espower  | gulp-concat   |               | OK     | OK     | OK      |
+| ES6  | gulp-babel (with babel-plugin-espower) | |            | OK     | OK     | OK      |
+| ES6  | gulp-babel (with babel-plugin-espower) | gulp-concat | | OK    | OK     | OK      |
 | CoffeeScript | gulp-coffee   | gulp-espower  |               | OK     | OK     | OK      |
 | CoffeeScript | gulp-coffee(with sourceRoot) | gulp-espower | | OK     | OK     | OK      |
 | CoffeeScript | gulp-coffee   | gulp-concat   | gulp-espower  | OK     | OK     | OK      |
 | CoffeeScript | gulp-coffee   | gulp-espower  | gulp-concat   | OK     | OK     | OK      |
 | TypeScript   | gulp-tsc      | gulp-espower  |               | ERROR  | N/A    | N/A     |
+| TypeScript   | gulp-tsc(with out option) | gulp-espower |    | ERROR  | N/A    | N/A     |
 | TypeScript   | gulp-tsc      | gulp-espower  | gulp-concat   | ERROR  | N/A    | N/A     |
 | TypeScript   | gulp-type     | gulp-espower  |               | OK     | OK     | OK      |
 | TypeScript   | gulp-type     | gulp-concat   | gulp-espower  | OK     | OK     | OK      |
 | TypeScript   | gulp-type     | gulp-espower  | gulp-concat   | OK     | OK     | OK      |
-| ES6  | gulp-babel (with babel-plugin-espower) | |            | OK     | OK     | OK      |
 
 [gulp-espower 0.9.0 is now landed!](https://github.com/twada/gulp-espower/releases/tag/v0.9.0)
 
