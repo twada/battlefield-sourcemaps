@@ -177,7 +177,7 @@ var gulpScenario = {
         html: './test/html/concat/test.html',
         plugins: [typescript({sourcemap: true, out: path.join(__dirname, 'build/gulp/gulp_tsc_out_espower/') + 'all_test.js'}), espower()]
     },
-    gulp_type_espower: {
+    gulp_typescript_espower: {
         works: true,
         type: ['ts'],
         srcFile: './test/web/*_test.ts',
@@ -189,7 +189,7 @@ var gulpScenario = {
             espower()
         ]
     },
-    gulp_type_espower_concat: {
+    gulp_typescript_espower_concat: {
         works: true,
         type: ['ts'],
         srcFile: './test/web/*_test.ts',
@@ -202,7 +202,7 @@ var gulpScenario = {
             concat('all_test.js')
         ]
     },
-    gulp_type_concat_espower: {
+    gulp_typescript_concat_espower: {
         works: true,
         type: ['ts'],
         srcFile: './test/web/*_test.ts',

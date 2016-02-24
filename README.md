@@ -60,9 +60,9 @@ STATUS
 | TypeScript   | gulp-tsc      | gulp-espower  |               | ERROR  | N/A    | N/A     |
 | TypeScript   | gulp-tsc(with out option) | gulp-espower |    | ERROR  | N/A    | N/A     |
 | TypeScript   | gulp-tsc      | gulp-espower  | gulp-concat   | ERROR  | N/A    | N/A     |
-| TypeScript   | gulp-typescript | gulp-espower  |               | OK     | OK     | OK      |
-| TypeScript   | gulp-typescript | gulp-concat   | gulp-espower  | OK     | OK     | OK      |
-| TypeScript   | gulp-typescript | gulp-espower  | gulp-concat   | OK     | OK     | OK      |
+| TypeScript   | gulp-typescript | gulp-espower |              | OK     | OK     | OK      |
+| TypeScript   | gulp-typescript | gulp-concat  | gulp-espower | OK     | OK     | OK      |
+| TypeScript   | gulp-typescript | gulp-espower | gulp-concat  | OK     | OK     | OK      |
 
 [gulp-espower 0.9.0 is now landed!](https://github.com/twada/gulp-espower/releases/tag/v0.9.0)
 
