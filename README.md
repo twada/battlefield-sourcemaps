@@ -60,9 +60,9 @@ STATUS
 | TypeScript   | gulp-tsc      | gulp-espower  |               | ERROR  | N/A    | N/A     |
 | TypeScript   | gulp-tsc(with out option) | gulp-espower |    | ERROR  | N/A    | N/A     |
 | TypeScript   | gulp-tsc      | gulp-espower  | gulp-concat   | ERROR  | N/A    | N/A     |
-| TypeScript   | gulp-type     | gulp-espower  |               | OK     | OK     | OK      |
-| TypeScript   | gulp-type     | gulp-concat   | gulp-espower  | OK     | OK     | OK      |
-| TypeScript   | gulp-type     | gulp-espower  | gulp-concat   | OK     | OK     | OK      |
+| TypeScript   | gulp-typescript | gulp-espower  |               | OK     | OK     | OK      |
+| TypeScript   | gulp-typescript | gulp-concat   | gulp-espower  | OK     | OK     | OK      |
+| TypeScript   | gulp-typescript | gulp-espower  | gulp-concat   | OK     | OK     | OK      |
 
 [gulp-espower 0.9.0 is now landed!](https://github.com/twada/gulp-espower/releases/tag/v0.9.0)
 
@@ -124,7 +124,7 @@ RELATED LINKS
 - [wearefractal/gulp-concat](https://github.com/wearefractal/gulp-concat)
 - [mikach/gulp-concat-sourcemap](https://github.com/mikach/gulp-concat-sourcemap)
 - [wearefractal/gulp-coffee](https://github.com/wearefractal/gulp-coffee)
-- [ivogabe/gulp-type](https://github.com/ivogabe/gulp-type)
+- [ivogabe/gulp-typescript](https://github.com/ivogabe/gulp-typescript)
 - [kotas/gulp-tsc](https://github.com/kotas/gulp-tsc)
 
 

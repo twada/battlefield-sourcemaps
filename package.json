@@ -44,7 +44,7 @@
     "gulp-tap": "^0.1.3",
     "gulp-task-listing": "^1.0.1",
     "gulp-tsc": "^1.0.0",
-    "gulp-type": "^0.3.0",
+    "gulp-typescript": "^2.0.0",
     "gulp-utf8ize-sourcemaps": "^1.0.0",
     "gulp-util": "^3.0.6",
     "gulp-webserver": "^0.9.1",
