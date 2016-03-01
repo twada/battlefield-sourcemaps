@@ -29,15 +29,15 @@ STATUS
 
 | language          | 1st transform | 2nd transform | output | Chrome | Firefox | note |
 |:------------------|:--------------|:--------------|:-------|:-------|:--------|:-----|
-| js                | espowerify    |               | OK     |        |         |      |
-| ES6               | es6ify        | espowerify    | NG     |        |         | please use babelify and babel-plugin-espower instead |
-| ES6               | babelify      | espowerify    | NG     |        |         | please use with babel-plugin-espower |
-| ES6     | babelify (with babel-plugin-espower) |  | OK     |        |         |      |
-| coffee            | coffeeify     | espowerify    | OK     |        |         |      |
-| js & coffee mixed | coffeeify     | espowerify    | OK     |        |         |      |
-| TypeScript(ts)    | tsify         | espowerify    | OK     |        |         |      |
-| js & ts mixed     | tsify         | espowerify    | OK     |        |         |      |
-| js & ts & coffee  | tsify, coffeeify | espowerify | OK     |        |         |      |
+| js                | espowerify    |               | OK     | OK     | OK      |      |
+| ES6               | es6ify        | espowerify    | NG     | N/A    | N/A     | please use babelify and babel-plugin-espower instead |
+| ES6               | babelify      | espowerify    | NG     | N/A    | N/A     | please use with babel-plugin-espower |
+| ES6     | babelify (with babel-plugin-espower) |  | OK     | OK     | OK      |      |
+| coffee            | coffeeify     | espowerify    | OK     | OK     | OK      |      |
+| js & coffee mixed | coffeeify     | espowerify    | OK     | OK     | OK      |      |
+| TypeScript(ts)    | tsify         | espowerify    | OK     | OK     | OK      |      |
+| js & ts mixed     | tsify         | espowerify    | OK     | OK     | OK      |      |
+| js & ts & coffee  | tsify, coffeeify | espowerify | OK     | OK     | OK      |      |
 
 [espowerify 0.9.0 is now landed!](https://github.com/twada/espowerify/releases/tag/v0.9.0)
 
