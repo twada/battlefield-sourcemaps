@@ -23,7 +23,7 @@ STATUS
 --------------------
 
 
-### espowerify
+### browserify
 
 [SourceMap transform chain by twada · Pull Request #4 · twada/espowerify](https://github.com/twada/espowerify/pull/4)
 
@@ -42,7 +42,7 @@ STATUS
 [espowerify 0.9.0 is now landed!](https://github.com/twada/espowerify/releases/tag/v0.9.0)
 
 
-### gulp-espower
+### gulp
 
 [gulp-sourcemaps support by twada · Pull Request #2 · twada/gulp-espower](https://github.com/twada/gulp-espower/pull/2)
 
@@ -67,7 +67,7 @@ STATUS
 [gulp-espower 0.9.0 is now landed!](https://github.com/twada/gulp-espower/releases/tag/v0.9.0)
 
 
-### grunt-espower
+### grunt
 
 [support multistage sourcemap by vvakame · Pull Request #2 · twada/grunt-espower](https://github.com/twada/grunt-espower/pull/2)
 
