@@ -49,7 +49,7 @@
     "gulp-util": "^3.0.7",
     "gulp-webserver": "^0.9.1",
     "intelli-espower-loader": "^1.0.1",
-    "licensify": "^3.0.0",
+    "licensify": "^3.0.1",
     "lstream": "0.0.4",
     "mocha": "^2.4.5",
     "mold-source-map": "^0.4.0",
