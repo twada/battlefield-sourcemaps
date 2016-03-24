@@ -15,7 +15,7 @@
     "browserify": "^13.0.0",
     "coffeeify": "^2.0.1",
     "del": "^2.2.0",
-    "empower": "power-assert-js/empower#extract-core",
+    "empower": "power-assert-js/empower",
     "es6ify": "^1.6.0",
     "espower": "power-assert-js/espower#embedded-recorder",
     "espower-cli": "^1.0.0",
